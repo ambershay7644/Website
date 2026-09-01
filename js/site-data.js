@@ -173,7 +173,7 @@ window.SITE_DATA = {
       "id": "overnight",
       "name": "Overnight Pet Sitting",
       "featured": true,
-      "price": "$75",
+      "price": "$55",
       "priceNote": "Starting at",
       "priceUnit": "per night",
       "descriptionEmphasis": "",
