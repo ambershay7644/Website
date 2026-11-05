@@ -58,7 +58,7 @@
       navItem("index.html", "Home", active === "home") +
       navItem("about.html", "About", active === "about") +
       navItem("services.html", "Services", active === "services") +
-      navItem("training.html", "Training", active === "training") +
+      navItem("training.html", "Certificates", active === "training") +
       navItem("gallery.html", "Gallery", active === "gallery") +
       navItem("contact.html", "Contact", active === "contact") +
       '<li><a class="nav-cta" href="' +
@@ -102,7 +102,7 @@
       "<li><a href=\"index.html\">Home</a></li>" +
       "<li><a href=\"about.html\">About</a></li>" +
       "<li><a href=\"services.html\">Services</a></li>" +
-      "<li><a href=\"training.html\">Training &amp; Certificates</a></li>" +
+      "<li><a href=\"training.html\">Certificates</a></li>" +
       "<li><a href=\"gallery.html\">Gallery</a></li>" +
       "<li><a href=\"contact.html\">Contact</a></li>" +
       "</ul></div>" +
