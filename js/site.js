@@ -58,6 +58,7 @@
       navItem("index.html", "Home", active === "home") +
       navItem("about.html", "About", active === "about") +
       navItem("services.html", "Services", active === "services") +
+      navItem("training.html", "Training", active === "training") +
       navItem("gallery.html", "Gallery", active === "gallery") +
       navItem("contact.html", "Contact", active === "contact") +
       '<li><a class="nav-cta" href="' +
@@ -101,6 +102,7 @@
       "<li><a href=\"index.html\">Home</a></li>" +
       "<li><a href=\"about.html\">About</a></li>" +
       "<li><a href=\"services.html\">Services</a></li>" +
+      "<li><a href=\"training.html\">Training &amp; Certificates</a></li>" +
       "<li><a href=\"gallery.html\">Gallery</a></li>" +
       "<li><a href=\"contact.html\">Contact</a></li>" +
       "</ul></div>" +
@@ -691,12 +693,182 @@
       ">Book a Visit</a></div></div></section>";
   }
 
+  function certCard(c, idx) {
+    var meta = [];
+    if (c.completed)
+      meta.push(
+        '<li><span>Completed</span><strong>' + esc(c.completed) + "</strong></li>"
+      );
+    if (c.expires)
+      meta.push(
+        '<li><span>Valid through</span><strong>' + esc(c.expires) + "</strong></li>"
+      );
+    if (c.verifyId)
+      meta.push(
+        '<li><span>Certificate ID</span><strong>' + esc(c.verifyId) + "</strong></li>"
+      );
+    var actions =
+      '<button class="btn btn-primary cert-open" type="button" data-cert="' +
+      idx +
+      '">View certificate</button>';
+    if (c.pdf)
+      actions +=
+        '<a class="btn btn-secondary" href="' +
+        esc(c.pdf) +
+        '" target="_blank" rel="noopener noreferrer">Download PDF</a>';
+    if (c.verifyUrl)
+      actions +=
+        '<a class="btn btn-secondary" href="' +
+        esc(c.verifyUrl) +
+        '" target="_blank" rel="noopener noreferrer">Verify online</a>';
+    return (
+      '<article class="cert-card">' +
+      '<button class="cert-preview cert-open" type="button" data-cert="' +
+      idx +
+      '" aria-label="View ' +
+      esc(c.title) +
+      ' certificate full size">' +
+      '<img src="' +
+      esc(c.image) +
+      '" alt="' +
+      esc(c.alt || c.title) +
+      '" loading="lazy" />' +
+      '<span class="cert-zoom" aria-hidden="true">🔍 Click to enlarge</span>' +
+      "</button>" +
+      '<div class="cert-body">' +
+      '<span class="cert-type">' +
+      esc(c.type || "Certificate") +
+      "</span>" +
+      "<h3>" +
+      esc(c.title) +
+      "</h3>" +
+      '<p class="cert-issuer">' +
+      (c.logo
+        ? '<img class="cert-logo" src="' + esc(c.logo) + '" alt="" />'
+        : "") +
+      "<span>" +
+      esc(c.issuer) +
+      "</span></p>" +
+      "<p>" +
+      esc(c.description) +
+      "</p>" +
+      (meta.length ? '<ul class="cert-meta">' + meta.join("") + "</ul>" : "") +
+      '<div class="btn-row cert-actions">' +
+      actions +
+      "</div></div></article>"
+    );
+  }
+
+  function wireCertLightbox(certs) {
+    var box = document.getElementById("cert-lightbox");
+    if (!box) return;
+    var img = box.querySelector(".cert-lightbox-img");
+    var cap = box.querySelector(".cert-lightbox-cap");
+    var closeBtn = box.querySelector(".cert-lightbox-close");
+    var lastFocus = null;
+
+    function open(i) {
+      var c = certs[i];
+      if (!c) return;
+      lastFocus = document.activeElement;
+      img.src = c.image;
+      img.alt = c.alt || c.title;
+      cap.textContent = c.title + " — " + c.issuer;
+      box.classList.add("open");
+      box.setAttribute("aria-hidden", "false");
+      document.body.classList.add("lightbox-open");
+      closeBtn.focus();
+    }
+
+    function close() {
+      box.classList.remove("open");
+      box.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("lightbox-open");
+      img.removeAttribute("src");
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+
+    document.querySelectorAll(".cert-open").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        open(parseInt(btn.getAttribute("data-cert"), 10));
+      });
+    });
+    box.addEventListener("click", function (e) {
+      if (e.target === box || e.target === closeBtn) close();
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && box.classList.contains("open")) close();
+    });
+  }
+
+  function fillTraining(data) {
+    var t = data.trainingPage || {};
+    var biz = data.business;
+    var book = bookAttrs(biz);
+    var root = document.getElementById("page-root");
+    var certs = data.certificates || [];
+    var cards = certs
+      .map(function (c, i) {
+        return certCard(c, i);
+      })
+      .join("");
+
+    root.innerHTML =
+      '<section class="page-hero"><div class="container">' +
+      '<span class="section-label">' +
+      esc(t.label) +
+      "</span><h1>" +
+      esc(t.title) +
+      '</h1><p class="lead">' +
+      esc(t.lead) +
+      "</p></div></section>" +
+      '<section class="section section-tight"><div class="container text-center">' +
+      '<span class="section-label">' +
+      esc(t.certsLabel) +
+      "</span><h2>" +
+      esc(t.certsTitle) +
+      '</h2><p class="lead">' +
+      esc(t.certsLead) +
+      '</p><div class="cert-grid">' +
+      cards +
+      "</div></div></section>" +
+      '<section class="section section-tight"><div class="container"><div class="area-banner">' +
+      '<span class="section-label">' +
+      esc(t.learningLabel) +
+      "</span><h2>" +
+      esc(t.learningTitle) +
+      '</h2><p class="lead" style="margin:0.75rem auto 0">' +
+      esc(t.learningText) +
+      "</p></div></div></section>" +
+      '<section class="section section-tight"><div class="container"><div class="cta-band">' +
+      "<h2>" +
+      esc(t.ctaTitle) +
+      "</h2><p>" +
+      esc(t.ctaLead) +
+      '</p><div class="btn-row">' +
+      '<a class="btn btn-primary" href="' +
+      esc(book.href) +
+      '"' +
+      book.target +
+      ">Book a consultation</a>" +
+      '<a class="btn btn-secondary" href="contact.html">Contact Amber</a>' +
+      "</div></div></div></section>" +
+      '<div id="cert-lightbox" class="cert-lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Certificate viewer">' +
+      '<button class="cert-lightbox-close" type="button" aria-label="Close">×</button>' +
+      '<figure><img class="cert-lightbox-img" alt="" />' +
+      '<figcaption class="cert-lightbox-cap"></figcaption></figure></div>';
+
+    wireCertLightbox(certs);
+  }
+
   function boot(data) {
     var biz = data.business;
     document.title =
       (PAGE === "home"
         ? biz.name + " | Dog Walking & Pet Sitting"
-        : PAGE.charAt(0).toUpperCase() + PAGE.slice(1) + " | " + biz.name);
+        : PAGE === "training"
+          ? "Training & Certificates | " + biz.name
+          : PAGE.charAt(0).toUpperCase() + PAGE.slice(1) + " | " + biz.name);
 
     var headerMount = document.getElementById("site-header");
     var footerMount = document.getElementById("site-footer");
@@ -708,6 +880,7 @@
     else if (PAGE === "services") fillServices(data);
     else if (PAGE === "contact") fillContact(data);
     else if (PAGE === "gallery") fillGallery(data);
+    else if (PAGE === "training") fillTraining(data);
 
     wireNav();
     wireContactForm(biz);

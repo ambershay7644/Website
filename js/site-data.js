@@ -312,5 +312,44 @@ window.SITE_DATA = {
       "quote": "Amber did a wonderful job watching my dogs! She took great care of them, kept me updated, and gave me peace of mind while I was away. I would definitely recommend them!",
       "author": "Lisa M."
     }
+  ],
+  "trainingPage": {
+    "label": "Training & Certificates",
+    "title": "Trained, certified & always learning",
+    "lead": "Your pet's safety comes first. Here are the certifications and memberships that back up the care I provide—click any certificate to view it full size.",
+    "certsLabel": "Current credentials",
+    "certsTitle": "Certificates & memberships",
+    "certsLead": "Verified training and professional standing, kept up to date.",
+    "learningLabel": "Always learning",
+    "learningTitle": "Continuing education matters",
+    "learningText": "Pet care is always evolving, so I keep learning. As I complete new courses and certifications, they'll be added to this page.",
+    "ctaTitle": "Care you can feel confident about",
+    "ctaLead": "Trained in pet first aid and held to professional standards—so you can relax while you're away."
+  },
+  "certificates": [
+    {
+      "title": "Cat & Dog First Aid",
+      "issuer": "American Red Cross",
+      "type": "Certificate of Completion",
+      "description": "Completed American Red Cross training in cat and dog first aid, so I'm prepared to respond calmly if your pet ever needs help.",
+      "completed": "October 28, 2026",
+      "expires": "October 28, 2028",
+      "image": "assets/cert-red-cross-cat-dog-first-aid.webp",
+      "alt": "American Red Cross Certificate of Completion in Cat and Dog First Aid for Amber Taylor",
+      "verifyUrl": "https://www.redcross.org/digitalcertificate",
+      "verifyId": "02GJBET"
+    },
+    {
+      "title": "Pet Sitters International Member",
+      "issuer": "Pet Sitters International (PSI)",
+      "type": "Certificate of Membership",
+      "description": "A member in good standing with Pet Sitters International, agreeing to follow PSI's Code of Conduct and Quality Standards.",
+      "completed": "",
+      "expires": "October 28, 2027",
+      "image": "assets/cert-psi-membership.webp",
+      "alt": "Pet Sitters International Certificate of Membership for Amber Taylor, Amber's Loving Paws Pet Care",
+      "verifyUrl": "",
+      "verifyId": ""
+    }
   ]
 };
