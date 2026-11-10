@@ -1673,3 +1673,189 @@ body.lightbox-open {
     display: block;
   }
 }
+
+
+/* -- Header v2: scalloped trim, heart + name logo, paw buttons -- */
+:root {
+  --paw-mask: url("data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2022%2020'%3E%3Cg%20transform%3D'translate(11%2011)'%3E%3Cellipse%20cx%3D'0'%20cy%3D'3.4'%20rx%3D'4.6'%20ry%3D'3.8'%2F%3E%3Cellipse%20cx%3D'-6'%20cy%3D'-1.4'%20rx%3D'1.9'%20ry%3D'2.5'%2F%3E%3Cellipse%20cx%3D'-2.3'%20cy%3D'-4.8'%20rx%3D'1.9'%20ry%3D'2.6'%2F%3E%3Cellipse%20cx%3D'2.3'%20cy%3D'-4.8'%20rx%3D'1.9'%20ry%3D'2.6'%2F%3E%3Cellipse%20cx%3D'6'%20cy%3D'-1.4'%20rx%3D'1.9'%20ry%3D'2.5'%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+  --trim: linear-gradient(90deg, #c4a8e8 0%, #6b3fa0 35%, #9b6dd4 65%, #c4a8e8 100%);
+}
+
+.site-header {
+  background: #ffffff;
+  box-shadow: none;
+  border-bottom: 3px solid var(--purple);
+}
+
+/* Scalloped purple edge hanging under the bar */
+.site-header::after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(100% + 3px);
+  height: 13px;
+  background: var(--trim);
+  -webkit-mask: radial-gradient(circle at 12px 0, #000 12px, transparent 12.5px) 0 0 / 24px 13px repeat-x;
+  mask: radial-gradient(circle at 12px 0, #000 12px, transparent 12.5px) 0 0 / 24px 13px repeat-x;
+  filter: drop-shadow(0 3px 3px rgba(74, 44, 122, 0.2));
+  pointer-events: none;
+}
+
+/* Heart picture + business name */
+.logo-link {
+  flex-shrink: 1;
+  min-width: 0;
+}
+
+.logo-link img.logo-mark {
+  width: 58px;
+  height: 53px;
+  max-width: none;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+  min-width: 0;
+}
+
+.logo-text strong {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 5.2vw, 1.5rem);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--purple-deep);
+  white-space: nowrap;
+}
+
+.logo-text span {
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--purple-soft);
+  margin-top: 3px;
+}
+
+/* Paw icon: takes the colour of the text around it */
+.paw-ico,
+.nav-list a.active::before,
+.nav-cta::before {
+  display: inline-block;
+  background-color: currentColor;
+  -webkit-mask: var(--paw-mask) center / contain no-repeat;
+  mask: var(--paw-mask) center / contain no-repeat;
+}
+
+.nav-list a.active::before,
+.nav-cta::before {
+  content: "";
+  width: 14px;
+  height: 13px;
+  margin-right: 6px;
+  vertical-align: -1px;
+}
+
+.nav-list a.active::after {
+  display: none;
+}
+
+/* Phones, tablets and small laptops: logo + Menu button, links drop down */
+@media (max-width: 1100px) {
+  .site-header nav {
+    display: contents;
+  }
+
+  .header-inner {
+    position: relative;
+  }
+
+  /* Paw "Menu" button */
+  .nav-toggle {
+    display: inline-flex;
+    margin-left: auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    flex-shrink: 0;
+    border: none;
+    background: var(--lavender);
+    border-radius: 16px;
+    padding: 0.4rem 0.6rem 0.35rem;
+    color: var(--purple-deep);
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .nav-toggle[aria-expanded="true"] {
+    background: var(--purple);
+    color: #ffffff;
+  }
+
+  .nav-toggle .paw-ico {
+    display: block;
+    width: 24px;
+    height: 22px;
+  }
+
+  /* Opened menu: full-width rows, above the scalloped edge */
+  .nav-list {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    background: white;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 1rem 1.25rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    gap: 0.25rem;
+  }
+
+  .nav-list.open {
+    display: flex;
+  }
+
+  .nav-list a {
+    display: block;
+    padding: 0.75rem 0.5rem;
+  }
+
+  .nav-cta {
+    text-align: center;
+    margin-top: 0.35rem;
+  }
+}
+
+/* Small phones: tighten the bar so the name and Menu button both fit */
+@media (max-width: 380px) {
+  .header-inner {
+    padding-left: 0.9rem;
+    padding-right: 0.9rem;
+    gap: 0.6rem;
+  }
+
+  .logo-link {
+    gap: 0.5rem;
+  }
+
+  .logo-link img.logo-mark {
+    width: 50px;
+    height: 46px;
+  }
+}
+
+/* Phone: a little breathing room between the scalloped edge and the first card */
+@media (max-width: 520px) {
+  .hero {
+    padding-top: 1.6rem;
+  }
+}

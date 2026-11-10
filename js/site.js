@@ -41,19 +41,32 @@
     var logo = biz.logo || "assets/logo-main.png";
     var name = esc(biz.shortName || biz.name);
     var book = bookAttrs(biz);
+    // Header logo: small heart picture + business name as real text (readable on phones).
+    // Falls back to the full logo picture when no heart picture is set.
+    var logoHtml = biz.logoMark
+      ? '<img class="logo-mark" src="' +
+        esc(biz.logoMark) +
+        '" alt="" width="58" height="53" />' +
+        '<span class="logo-text"><strong>' +
+        name +
+        "</strong>" +
+        (biz.logoSub ? "<span>" + esc(biz.logoSub) + "</span>" : "") +
+        "</span>"
+      : '<img class="logo-header" src="' +
+        esc(logo) +
+        '" alt="' +
+        esc(biz.name) +
+        '" />';
     return (
       '<header class="site-header">' +
       '<div class="header-inner">' +
       '<a class="logo-link" href="index.html" aria-label="' +
       name +
       ' home">' +
-      '<img class="logo-header" src="' +
-      esc(logo) +
-      '" alt="' +
-      esc(biz.name) +
-      '" />' +
+      logoHtml +
       "</a>" +
-      '<button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>' +
+      '<button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">' +
+      '<span class="paw-ico" aria-hidden="true"></span><span>Menu</span></button>' +
       "<nav><ul class=\"nav-list\">" +
       navItem("index.html", "Home", active === "home") +
       navItem("about.html", "About", active === "about") +

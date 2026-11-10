@@ -10,6 +10,8 @@ window.SITE_DATA = {
     "phoneHref": "tel:8329482184",
     "email": "ambertaylor3003@gmail.com",
     "logo": "assets/logo-main.png",
+    "logoMark": "assets/logo-heart.png",
+    "logoSub": "Pet Care",
     "bookingUrl": "https://app.scritches.io/book/ambers-loving-paws-",
     "bookingLabel": "Book online",
     "smsHref": "sms:+18329482184",
