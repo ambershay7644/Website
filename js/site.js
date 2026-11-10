@@ -84,6 +84,75 @@
     );
   }
 
+  /** Social profile links (Instagram, Facebook…) as list items */
+  function socialItems(biz) {
+    return ((biz && biz.social) || [])
+      .map(function (s) {
+        return (
+          '<li><a href="' +
+          esc(s.url) +
+          '" target="_blank" rel="noopener noreferrer">' +
+          esc(s.name) +
+          "</a></li>"
+        );
+      })
+      .join("");
+  }
+
+  /** Short trust points shown under the hero buttons */
+  function trustList(items) {
+    if (!items || !items.length) return "";
+    return (
+      '<ul class="trust-list">' +
+      items
+        .map(function (t) {
+          var text = esc(t.text);
+          return (
+            "<li>" +
+            (t.href ? '<a href="' + esc(t.href) + '">' + text + "</a>" : text) +
+            "</li>"
+          );
+        })
+        .join("") +
+      "</ul>"
+    );
+  }
+
+  /** Home section for recurring weekly dog walks */
+  function weeklySection(h, biz) {
+    if (!h.weeklyTitle) return "";
+    var bullets = (h.weeklyBullets || [])
+      .map(function (b) {
+        return "<li>" + esc(b) + "</li>";
+      })
+      .join("");
+    var textBtn =
+      biz.smsHref && h.weeklyCtaText
+        ? '<a class="btn btn-secondary" href="' +
+          esc(biz.smsHref) +
+          '">' +
+          esc(h.weeklyCtaText) +
+          "</a>"
+        : "";
+    return (
+      '<section class="section section-tight" id="weekly-walks"><div class="container"><div class="area-banner weekly-band">' +
+      '<span class="section-label">' +
+      esc(h.weeklyLabel) +
+      "</span><h2>" +
+      esc(h.weeklyTitle) +
+      '</h2><p class="lead" style="margin:0.75rem auto 0">' +
+      esc(h.weeklyLead) +
+      '</p><ul class="checklist weekly-list">' +
+      bullets +
+      '</ul><div class="btn-row" style="justify-content:center">' +
+      '<a class="btn btn-primary" href="contact.html">' +
+      esc(h.weeklyCta || "Ask about weekly walks") +
+      "</a>" +
+      textBtn +
+      "</div></div></div></section>"
+    );
+  }
+
   function renderFooter(biz) {
     var year = new Date().getFullYear();
     return (
@@ -119,7 +188,9 @@
       "</a></li>" +
       "<li>" +
       esc(biz.owner) +
-      "</li></ul></div></div>" +
+      "</li>" +
+      socialItems(biz) +
+      "</ul></div></div>" +
       '<div class="footer-bottom"><span>© ' +
       year +
       " " +
@@ -328,6 +399,7 @@
       " <em>" +
       esc(h.titleEm) +
       "</em></h1>" +
+      (h.offer ? '<p class="hero-offer">' + esc(h.offer) + "</p>" : "") +
       '<p class="lead">' +
       esc(h.lead) +
       "</p>" +
@@ -341,7 +413,9 @@
       "</a>" +
       '<a class="btn btn-secondary" href="services.html">' +
       esc(h.ctaSecondary) +
-      "</a></div></div>" +
+      "</a></div>" +
+      trustList(h.trust) +
+      "</div>" +
       '<div class="hero-card"><img src="' +
       esc(biz.logo) +
       '" alt="' +
@@ -364,6 +438,7 @@
       '"' +
       book.target +
       ">View Availability</a></div></div></section>" +
+      weeklySection(h, biz) +
       '<section class="section"><div class="container"><div class="area-banner">' +
       '<span class="section-label">' +
       esc(h.areaLabel) +
@@ -626,6 +701,21 @@
       esc(biz.name) +
       "</span></div></div>" +
       '<div class="contact-line"><div class="icon" aria-hidden="true">📍</div><div><strong>Service area</strong><span>North Houston & surrounding communities</span></div></div>' +
+      (biz.social && biz.social.length
+        ? '<div class="contact-line"><div class="icon" aria-hidden="true">📷</div><div><strong>Follow along</strong>' +
+          '<ul class="contact-social">' +
+          socialItems(biz) +
+          "</ul></div></div>"
+        : "") +
+      (biz.smsHref && c.textCta
+        ? '<div class="btn-row contact-quick"><a class="btn btn-primary" href="' +
+          esc(biz.smsHref) +
+          '">' +
+          esc(c.textCta) +
+          '</a><a class="btn btn-secondary" href="' +
+          esc(biz.phoneHref) +
+          '">Call</a></div>'
+        : "") +
       '<p class="form-note" style="margin-top:1rem">' +
       esc(c.locationNote) +
       '</p><p class="form-note">' +
@@ -865,7 +955,8 @@
     var biz = data.business;
     document.title =
       (PAGE === "home"
-        ? biz.name + " | Dog Walking & Pet Sitting"
+        ? (data.home && data.home.pageTitle) ||
+          biz.name + " | Dog Walking & Pet Sitting"
         : PAGE === "training"
           ? "Training & Certificates | " + biz.name
           : PAGE.charAt(0).toUpperCase() + PAGE.slice(1) + " | " + biz.name);

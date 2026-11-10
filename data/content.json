@@ -9,7 +9,18 @@
     "email": "ambertaylor3003@gmail.com",
     "logo": "assets/logo-main.png",
     "bookingUrl": "https://app.scritches.io/book/ambers-loving-paws-",
-    "bookingLabel": "Book online"
+    "bookingLabel": "Book online",
+    "smsHref": "sms:+18329482184",
+    "social": [
+      {
+        "name": "Instagram",
+        "url": "https://www.instagram.com/amberslovingpawspetcare/"
+      },
+      {
+        "name": "Facebook",
+        "url": "https://www.facebook.com/profile.php?id=61593042751251"
+      }
+    ]
   },
   "home": {
     "badge": "♥ Proudly Serving North Houston and Surrounding Areas",
@@ -35,7 +46,36 @@
     "ctaBandTitle": "Ready to get started?",
     "ctaBandLead": "Book a consultation and let's plan the best care for your pets.",
     "ctaBandPrimary": "Book a consultation",
-    "ctaBandSecondary": "Call 832-948-2184"
+    "ctaBandSecondary": "Call 832-948-2184",
+    "pageTitle": "Pet Sitting & Dog Walking in Spring, TX | Amber's Loving Paws",
+    "offer": "In-home pet sitting, dog walking & drop-in visits",
+    "trust": [
+      {
+        "text": "Red Cross Cat & Dog First Aid certified",
+        "href": "training.html"
+      },
+      {
+        "text": "Pet Sitters International member",
+        "href": "training.html"
+      },
+      {
+        "text": "Free meet & greet"
+      },
+      {
+        "text": "Daily photo & video updates"
+      }
+    ],
+    "weeklyLabel": "For busy pet parents",
+    "weeklyTitle": "Weekly dog walks while you're at work",
+    "weeklyLead": "Long day at work? Put your dog on a regular walk schedule and come home to a happy, relaxed pup.",
+    "weeklyBullets": [
+      "The same walker every time—me",
+      "Your dog's walks on the same days each week",
+      "A photo update after every walk",
+      "Free meet & greet before we start"
+    ],
+    "weeklyCta": "Ask about weekly walks",
+    "weeklyCtaText": "Text 832-948-2184"
   },
   "about": {
     "label": "About",
@@ -84,7 +124,8 @@
     "cardTitle": "Contact me!",
     "formTitle": "Book a consultation",
     "locationNote": "🐾 Have a location question? Not sure if I cover your area? Give me a call or send me a message—I'm happy to check availability for your location.",
-    "formHint": "Opens your email app with a message ready for Amber."
+    "formHint": "Opens your email app with a message ready for Amber.",
+    "textCta": "Text Amber"
   },
   "galleryPage": {
     "label": "Gallery",
@@ -175,8 +216,8 @@
       "priceNote": "Starting at",
       "priceUnit": "per night",
       "descriptionEmphasis": "",
-      "description": "One-on-one overnight care in the comfort of your pet's own home.",
-      "descriptionLong": "Your pet deserves more than just a sitter, they deserve someone who truly cares. My overnight pet sitting service allows your pet to stay in the comfort of their own home while receiving personalized, one-on-one care tailored to their unique routine and needs. From evening cuddles to morning potty breaks, I'll make sure they feel safe, loved, and cared for every step of the way, so you can enjoy your time away with peace of mind.",
+      "description": "One-on-one overnight care in your pet's own home—plus mail, plants, and garbage looked after.",
+      "descriptionLong": "Your pet deserves more than just a sitter, they deserve someone who truly cares. My overnight pet sitting service allows your pet to stay in the comfort of their own home while receiving personalized, one-on-one care tailored to their unique routine and needs. From evening cuddles to morning potty breaks, I'll make sure they feel safe, loved, and cared for every step of the way, so you can enjoy your time away with peace of mind. While I'm there, I'm also happy to help around the house—bringing in the mail, watering plants, and taking out the garbage—so you come home to a happy pet and a cared-for home.",
       "image": "assets/service-overnight.webp",
       "button": "View Availability"
     },
@@ -256,7 +297,8 @@
     "Tomball",
     "Humble",
     "Magnolia",
-    "Willis"
+    "Willis",
+    "New Caney"
   ],
   "process": [
     {

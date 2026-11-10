@@ -1572,3 +1572,88 @@ body.lightbox-open {
     width: 100%;
   }
 }
+
+/* —— Hero offer + trust points —— */
+.hero-offer {
+  margin: -0.35rem 0 0.85rem;
+  font-weight: 800;
+  font-size: 1.08rem;
+  color: var(--purple);
+}
+
+.trust-list {
+  list-style: none;
+  margin: 1.35rem 0 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.45rem 1rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--purple-deep);
+}
+
+.trust-list li {
+  position: relative;
+  padding-left: 1.4rem;
+}
+
+.trust-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--purple);
+  font-weight: 800;
+}
+
+.trust-list a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+/* —— Weekly walks —— */
+.weekly-list {
+  display: inline-block;
+  text-align: left;
+}
+
+.weekly-list li {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* —— Contact extras —— */
+.contact-social {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-quick {
+  margin-top: 1.1rem;
+}
+
+@media (max-width: 520px) {
+  .trust-list {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-quick .btn {
+    width: 100%;
+  }
+}
+
+/* Phone: keep the Book button high on the first screen */
+@media (max-width: 520px) {
+  .hero {
+    padding-top: 1.1rem;
+  }
+
+  .hero-offer {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+  }
+}

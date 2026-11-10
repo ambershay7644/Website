@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /Website-main/
+
+Sitemap: https://amberslovingpawspetcare.com/sitemap.xml
