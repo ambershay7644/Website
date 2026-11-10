@@ -1709,7 +1709,7 @@ body.lightbox-open {
 
 .logo-link img.logo-mark {
   width: 58px;
-  height: 53px;
+  height: 57px;
   max-width: none;
   flex-shrink: 0;
 }
@@ -1849,7 +1849,7 @@ body.lightbox-open {
 
   .logo-link img.logo-mark {
     width: 50px;
-    height: 46px;
+    height: 49px;
   }
 }
 
@@ -1858,4 +1858,10 @@ body.lightbox-open {
   .hero {
     padding-top: 1.6rem;
   }
+}
+
+/* Heart picture is a little taller now (full tip shows); trim the bar padding so the bar keeps its height */
+.header-inner {
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
 }

@@ -46,7 +46,7 @@
     var logoHtml = biz.logoMark
       ? '<img class="logo-mark" src="' +
         esc(biz.logoMark) +
-        '" alt="" width="58" height="53" />' +
+        '" alt="" width="58" height="57" />' +
         '<span class="logo-text"><strong>' +
         name +
         "</strong>" +
