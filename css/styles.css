@@ -1657,3 +1657,19 @@ body.lightbox-open {
     margin-bottom: 0.6rem;
   }
 }
+
+/* Phone/tablet: keep the menu button on the right edge, not floating in the middle */
+@media (max-width: 900px) {
+  .site-header nav {
+    display: contents;
+  }
+
+  .nav-toggle {
+    margin-left: auto;
+  }
+
+  /* Give each link in the opened menu its own full row so taps don't overlap */
+  .nav-list a {
+    display: block;
+  }
+}
