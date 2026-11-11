@@ -201,6 +201,32 @@ window.SITE_DATA = {
     {
       "src": "assets/gallery-14-sloan-tongue.jpg",
       "alt": "French bulldog with tongue out looking up"
+    },
+    {
+      "src": "assets/gallery-15-dog-with-bone.jpg",
+      "alt": "Tan and black dog on the grass holding a toy bone in its mouth"
+    },
+    {
+      "src": "assets/gallery-16-dog-on-couch.jpg",
+      "alt": "Smiling tan and black dog relaxing on a couch with a blanket"
+    },
+    {
+      "src": "assets/gallery-17-pomeranian-smile.jpg",
+      "alt": "Fluffy black and tan Pomeranian smiling on a wooden deck",
+      "focus": "50% 0%"
+    },
+    {
+      "src": "assets/gallery-18-brown-pomeranian.jpg",
+      "alt": "Fluffy brown Pomeranian smiling at the camera",
+      "focus": "50% 0%"
+    },
+    {
+      "src": "assets/gallery-19-yorkie.jpg",
+      "alt": "Yorkshire terrier standing on a wooden deck looking up"
+    },
+    {
+      "src": "assets/gallery-20-pomeranian-kitchen.jpg",
+      "alt": "Black and tan Pomeranian smiling and reaching up with one paw"
     }
   ],
   "services": [

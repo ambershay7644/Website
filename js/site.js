@@ -872,7 +872,9 @@
                 esc(item.src) +
                 '" alt="' +
                 esc(item.alt || "Happy pet") +
-                '" loading="lazy" />' +
+                '"' +
+                (item.focus ? ' style="object-position:' + esc(item.focus) + '"' : "") +
+                ' loading="lazy" />' +
                 "</div>"
               );
             })
