@@ -131,6 +131,18 @@
     );
   }
 
+  /** Slogan ribbon shown right under the top bar on the home page */
+  function sloganRibbon(h) {
+    if (!h.slogan) return "";
+    return (
+      '<div class="slogan-ribbon"><p>' +
+      '<span class="paw-ico" aria-hidden="true"></span>' +
+      esc(h.slogan) +
+      '<span class="paw-ico" aria-hidden="true"></span>' +
+      "</p></div>"
+    );
+  }
+
   /** Home section for recurring weekly dog walks */
   function weeklySection(h, biz) {
     if (!h.weeklyTitle) return "";
@@ -487,6 +499,7 @@
       .join("");
 
     root.innerHTML =
+      sloganRibbon(h) +
       '<section class="hero"><div class="container hero-grid">' +
       '<div class="hero-copy">' +
       '<div class="hero-badge">' +

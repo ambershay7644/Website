@@ -29,6 +29,7 @@ window.SITE_DATA = {
   },
   "home": {
     "badge": "♥ Proudly Serving North Houston and Surrounding Areas",
+    "slogan": "Keeping your pets comfortable, cared for, and loved at home.",
     "title": "Amber's Loving Paws",
     "titleEm": "Pet Care",
     "lead": "Your pet is family, and finding someone trustworthy to care for them is so important. At Amber's Loving Paws, I am here to give you the confidence and reassurance that your beloved pet is in the most caring and capable hands.",

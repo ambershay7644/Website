@@ -1929,3 +1929,51 @@ body.lightbox-open {
     transition: none;
   }
 }
+
+
+/* -- Slogan ribbon under the top bar (home page) -- */
+.slogan-ribbon {
+  background: linear-gradient(90deg, #efe6fa, #e4d6f6 50%, #efe6fa);
+  border-bottom: 1px solid rgba(107, 63, 160, 0.18);
+  padding: 1.5rem 1rem 0.8rem; /* top padding clears the scalloped edge */
+  text-align: center;
+}
+
+.slogan-ribbon p {
+  margin: 0 auto;
+  max-width: 46rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 600;
+  color: var(--purple-deep);
+  font-size: clamp(1.15rem, 4.9vw, 1.6rem);
+  line-height: 1.25;
+  text-wrap: balance; /* even line lengths when it wraps on phones */
+}
+
+.slogan-ribbon .paw-ico {
+  width: 17px;
+  height: 16px;
+  margin: 0 0.5rem;
+  vertical-align: -1px;
+  color: var(--purple-soft);
+}
+
+/* the ribbon already separates the bar from the first card, so the card can sit closer */
+.slogan-ribbon + .hero {
+  padding-top: 1.75rem;
+}
+
+@media (max-width: 520px) {
+  .slogan-ribbon {
+    padding: 1.3rem 0.9rem 0.6rem;
+  }
+
+  .slogan-ribbon .paw-ico {
+    display: none;
+  }
+
+  .slogan-ribbon + .hero {
+    padding-top: 1rem;
+  }
+}
