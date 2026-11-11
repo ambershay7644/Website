@@ -1865,3 +1865,67 @@ body.lightbox-open {
   padding-top: 0.6rem;
   padding-bottom: 0.6rem;
 }
+
+
+/* -- Contact form: text / email buttons -- */
+.field label .optional {
+  font-weight: 400;
+  opacity: 0.7;
+}
+
+.form-actions {
+  margin-top: 1rem;
+}
+
+/* -- Phone bar fixed to the bottom of the screen: Book online + Text -- */
+.mobile-cta {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .mobile-cta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 90;
+    display: flex;
+    gap: 0.6rem;
+    padding: 0.6rem 0.9rem calc(0.6rem + env(safe-area-inset-bottom, 0px));
+    background: rgba(255, 255, 255, 0.97);
+    border-top: 3px solid var(--purple);
+    box-shadow: 0 -6px 18px rgba(74, 44, 122, 0.16);
+    transform: translateY(110%);
+    visibility: hidden;
+    transition: transform 0.25s ease, visibility 0.25s ease;
+  }
+
+  .mobile-cta.show {
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+  .mobile-cta .btn {
+    flex: 1 1 0;
+    width: auto;
+    padding: 0.7rem 0.5rem;
+    font-size: 0.93rem;
+    white-space: nowrap;
+  }
+
+  .mobile-cta .paw-ico {
+    width: 14px;
+    height: 13px;
+  }
+
+  /* keep the last lines of the footer clear of the bar */
+  body.has-mobile-cta .site-footer {
+    padding-bottom: 5.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mobile-cta {
+    transition: none;
+  }
+}

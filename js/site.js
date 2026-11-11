@@ -353,9 +353,40 @@
     });
   }
 
-  function wireContactForm(biz) {
+  /** Phones and tablets can send a text message straight from a link; most computers cannot. */
+  function canText(biz) {
+    if (!biz || !biz.smsHref) return false;
+    var coarse = window.matchMedia && window.matchMedia("(pointer: coarse)").matches;
+    var mobileUa = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent || "");
+    return coarse || mobileUa || window.innerWidth <= 700;
+  }
+
+  /** sms: link with the message already typed (works on iPhone and Android) */
+  function smsLink(biz, text) {
+    return biz.smsHref + "?&body=" + encodeURIComponent(text || "");
+  }
+
+  function wireContactForm(biz, c) {
     var form = document.getElementById("contact-form");
     if (!form) return;
+    c = c || {};
+    var textBtn = form.querySelector(".form-send-text");
+    var emailBtn = form.querySelector(".form-send-email");
+    var hint = document.getElementById("form-hint");
+    var mode = "text";
+    if (!canText(biz)) {
+      // Computer: email is the main button, the text button is hidden
+      mode = "email";
+      if (textBtn) textBtn.style.display = "none";
+      if (emailBtn) emailBtn.className = "btn btn-primary form-send-email";
+      if (hint && c.formHintEmail) hint.textContent = c.formHintEmail;
+    }
+    [textBtn, emailBtn].forEach(function (btn) {
+      if (!btn) return;
+      btn.addEventListener("click", function () {
+        mode = btn.getAttribute("data-send");
+      });
+    });
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var name = (form.querySelector('[name="name"]') || {}).value || "";
@@ -363,24 +394,78 @@
       var phone = (form.querySelector('[name="phone"]') || {}).value || "";
       var service = (form.querySelector('[name="service"]') || {}).value || "";
       var message = (form.querySelector('[name="message"]') || {}).value || "";
-      var subject = encodeURIComponent("Pet care inquiry from " + name);
-      var body = encodeURIComponent(
-        "Name: " +
-          name +
-          "\nEmail: " +
-          email +
-          "\nPhone: " +
-          phone +
-          "\nService: " +
-          service +
-          "\n\n" +
-          message
-      );
-      window.location.href =
-        "mailto:" + biz.email + "?subject=" + subject + "&body=" + body;
       var success = document.getElementById("form-success");
+      if (mode === "text") {
+        var text =
+          "Hi Amber! This is " +
+          name +
+          ". I'm interested in: " +
+          service +
+          ".\n" +
+          message +
+          (phone ? "\nBest phone: " + phone : "") +
+          (email ? "\nEmail: " + email : "");
+        window.location.href = smsLink(biz, text);
+        if (success)
+          success.textContent =
+            "Your text is ready in your messages app—hit send when it looks good!";
+      } else {
+        var subject = encodeURIComponent("Pet care inquiry from " + name);
+        var body = encodeURIComponent(
+          "Name: " +
+            name +
+            "\nEmail: " +
+            email +
+            "\nPhone: " +
+            phone +
+            "\nService: " +
+            service +
+            "\n\n" +
+            message
+        );
+        window.location.href =
+          "mailto:" + biz.email + "?subject=" + subject + "&body=" + body;
+        if (success)
+          success.textContent =
+            "Your email draft should be ready—hit send when it looks good!";
+      }
       if (success) success.classList.add("show");
     });
+  }
+
+  /** Phone-only bar fixed to the bottom of the screen: Book online + Text Amber */
+  function addMobileBar(biz, c) {
+    if (document.getElementById("mobile-cta")) return;
+    var book = bookAttrs(biz);
+    var textBtn = biz.smsHref
+      ? '<a class="btn btn-secondary" href="' +
+        esc(smsLink(biz, biz.textGreeting || "")) +
+        '">' +
+        esc((c && c.textCta) || "Text Amber") +
+        "</a>"
+      : "";
+    document.body.insertAdjacentHTML(
+      "beforeend",
+      '<div class="mobile-cta" id="mobile-cta">' +
+        '<a class="btn btn-primary" href="' +
+        esc(book.href) +
+        '"' +
+        book.target +
+        '><span class="paw-ico" aria-hidden="true"></span>' +
+        esc(book.label) +
+        "</a>" +
+        textBtn +
+        "</div>"
+    );
+    document.body.classList.add("has-mobile-cta");
+    var bar = document.getElementById("mobile-cta");
+    // Appears once the visitor has scrolled past the first buttons on the page
+    function update() {
+      var y = window.pageYOffset || document.documentElement.scrollTop || 0;
+      bar.classList.toggle("show", y > 320);
+    }
+    window.addEventListener("scroll", update, { passive: true });
+    update();
   }
 
   function fillHome(data) {
@@ -738,17 +823,23 @@
       esc(c.formTitle) +
       '</h3><form id="contact-form" class="contact-form">' +
       '<div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" required autocomplete="name" /></div>' +
-      '<div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required autocomplete="email" /></div>' +
-      '<div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" /></div>' +
+      '<div class="field"><label for="email">Email <span class="optional">(optional)</span></label><input id="email" name="email" type="email" autocomplete="email" /></div>' +
+      '<div class="field"><label for="phone">Phone <span class="optional">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" /></div>' +
       '<div class="field"><label for="service">Service interested in</label><select id="service" name="service">' +
       options +
       "</select></div>" +
       '<div class="field"><label for="message">Tell me about your pets & location</label>' +
       '<textarea id="message" name="message" required placeholder="Pet names, city, dates needed..."></textarea></div>' +
-      '<button class="btn btn-primary" type="submit">Book Consultation (open email)</button>' +
-      '<p class="form-note">' +
+      '<div class="btn-row form-actions">' +
+      '<button class="btn btn-primary form-send-text" type="submit" data-send="text">' +
+      esc(c.formTextBtn || "Send as a text") +
+      "</button>" +
+      '<button class="btn btn-secondary form-send-email" type="submit" data-send="email">' +
+      esc(c.formEmailBtn || "Send by email") +
+      "</button></div>" +
+      '<p class="form-note" id="form-hint">' +
       esc(c.formHint) +
-      '</p><div id="form-success" class="form-success" role="status">Your email draft should be ready—hit send when it looks good!</div>' +
+      '</p><div id="form-success" class="form-success" role="status"></div>' +
       "</form></div></div></section>";
   }
 
@@ -987,7 +1078,8 @@
     else if (PAGE === "training") fillTraining(data);
 
     wireNav();
-    wireContactForm(biz);
+    wireContactForm(biz, data.contactPage);
+    addMobileBar(biz, data.contactPage);
   }
 
   function load() {

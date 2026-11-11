@@ -22,7 +22,8 @@
         "name": "Facebook",
         "url": "https://www.facebook.com/profile.php?id=61593042751251"
       }
-    ]
+    ],
+    "textGreeting": "Hi Amber! I found you on your website. "
   },
   "home": {
     "badge": "♥ Proudly Serving North Houston and Surrounding Areas",
@@ -126,7 +127,10 @@
     "cardTitle": "Contact me!",
     "formTitle": "Book a consultation",
     "locationNote": "🐾 Have a location question? Not sure if I cover your area? Give me a call or send me a message—I'm happy to check availability for your location.",
-    "formHint": "Opens your email app with a message ready for Amber.",
+    "formHint": "Opens your messages app with everything filled in—just hit send.",
+    "formHintEmail": "Opens your email app with a message ready for Amber.",
+    "formTextBtn": "Send as a text",
+    "formEmailBtn": "Send by email",
     "textCta": "Text Amber"
   },
   "galleryPage": {
