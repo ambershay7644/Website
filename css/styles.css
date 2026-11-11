@@ -2007,3 +2007,15 @@ body.lightbox-open {
     margin-top: 1.2rem;
   }
 }
+
+/* Phone: Gallery shows two photos per row (a lone first photo stays full width so no row is left half empty) */
+@media (max-width: 600px) {
+  .gallery-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.6rem;
+  }
+
+  .gallery-grid > .gallery-tile-photo:first-child:nth-last-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
