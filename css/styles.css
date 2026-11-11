@@ -1977,3 +1977,33 @@ body.lightbox-open {
     padding-top: 1rem;
   }
 }
+
+/* Phone: fit the ribbon, the full paragraph and both buttons on the first screen */
+@media (max-width: 520px) {
+  .hero-copy {
+    padding-top: 1.35rem;
+  }
+
+  .hero-badge {
+    font-size: 0.66rem;
+    padding: 0.3rem 0.75rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .hero h1 {
+    margin-bottom: 0.65rem;
+  }
+
+  .hero-offer {
+    margin-bottom: 0.45rem;
+  }
+
+  .hero-copy .lead {
+    font-size: 0.97rem;
+    line-height: 1.5;
+  }
+
+  .hero-copy .btn-row {
+    margin-top: 1.2rem;
+  }
+}
