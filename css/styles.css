@@ -2019,3 +2019,244 @@ body.lightbox-open {
     grid-column: 1 / -1;
   }
 }
+
+/* —— Home v3: "Bold Purple" —— real pet photo band, purple weekly-walks band, lavender steps band —— */
+.pets-band {
+  position: relative;
+  margin: 1.6rem 0 3.4rem;
+  background: var(--purple-deep);
+  padding: 6px 0;
+}
+
+.pets-band::before,
+.pets-band::after,
+body[data-page="home"] #weekly-walks::before,
+body[data-page="home"] #weekly-walks::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 12px;
+  pointer-events: none;
+}
+
+/* Scalloped edges, echoing the trim under the top bar */
+.pets-band::before {
+  top: -11px;
+  background: radial-gradient(circle at 12px 12px, var(--purple-deep) 11.5px, transparent 12px) 0 0 / 24px 12px repeat-x;
+}
+
+.pets-band::after {
+  bottom: -11px;
+  background: radial-gradient(circle at 12px 0, var(--purple-deep) 11.5px, transparent 12px) 0 0 / 24px 12px repeat-x;
+}
+
+.pets-band-row {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 6px;
+}
+
+.pets-band-row img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  display: block;
+  background: var(--purple-mid);
+}
+
+.pets-band-pill {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background: #ffffff;
+  color: var(--purple-deep);
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.45rem 1.1rem;
+  border-radius: 999px;
+  border: 2px solid var(--purple-deep);
+  box-shadow: var(--shadow-sm);
+  text-decoration: none;
+}
+
+.pets-band-top {
+  top: -30px;
+}
+
+.pets-band-bottom {
+  bottom: -31px;
+  background: var(--purple);
+  color: #ffffff;
+  border-color: #ffffff;
+  transition: background 0.2s ease;
+}
+
+.pets-band-bottom:hover {
+  background: var(--purple-deep);
+  color: #ffffff;
+}
+
+.pets-band-pill .paw-ico {
+  width: 14px;
+  height: 13px;
+  margin-right: 6px;
+  vertical-align: -1px;
+}
+
+@media (max-width: 700px) {
+  .pets-band {
+    padding: 4px 0;
+  }
+
+  .pets-band-row {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+  }
+}
+
+/* Service cards on the home page: framed photo with a lilac ring */
+body[data-page="home"] .price-card-compact {
+  padding-top: 1.1rem;
+}
+
+body[data-page="home"] .price-card-compact .service-photo {
+  width: calc(100% - 2.2rem);
+  aspect-ratio: 4 / 3;
+  border-radius: 18px;
+  margin: 0 auto 0.5rem;
+  border: 5px solid #ffffff;
+  box-shadow: 0 0 0 4px var(--lilac), var(--shadow-sm);
+}
+
+/* Weekly walks: deep purple band, edge to edge */
+body[data-page="home"] #weekly-walks {
+  position: relative;
+  background: linear-gradient(180deg, #4a2c7a, #6a3fa6);
+  padding: 3.75rem 0;
+  margin: 2.5rem 0;
+}
+
+body[data-page="home"] #weekly-walks::before {
+  top: -11px;
+  background: radial-gradient(circle at 12px 12px, #4a2c7a 11.5px, transparent 12px) 0 0 / 24px 12px repeat-x;
+}
+
+body[data-page="home"] #weekly-walks::after {
+  bottom: -11px;
+  background: radial-gradient(circle at 12px 0, #6a3fa6 11.5px, transparent 12px) 0 0 / 24px 12px repeat-x;
+}
+
+body[data-page="home"] #weekly-walks .area-banner {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+body[data-page="home"] #weekly-walks h2,
+body[data-page="home"] #weekly-walks .weekly-list li {
+  color: #ffffff;
+}
+
+body[data-page="home"] #weekly-walks .section-label,
+body[data-page="home"] #weekly-walks .weekly-list li::before {
+  color: #e3d2fb;
+}
+
+body[data-page="home"] #weekly-walks .lead {
+  color: #f1e8fd;
+}
+
+body[data-page="home"] #weekly-walks .btn-primary {
+  background: #ffffff;
+  color: var(--purple-deep);
+  box-shadow: none;
+}
+
+body[data-page="home"] #weekly-walks .btn-primary:hover {
+  background: var(--lavender);
+  color: var(--purple-deep);
+}
+
+body[data-page="home"] #weekly-walks .btn-secondary {
+  background: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+  box-shadow: none;
+}
+
+body[data-page="home"] #weekly-walks .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
+/* Steps: soft lavender band with numbered circles */
+.process-sec {
+  background: linear-gradient(180deg, #f1e9fb, #e6d9f7);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 3.25rem 0;
+  margin: 1.5rem 0;
+}
+
+.process-sec > .container.text-center {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.process-sec .process-step .step-num {
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  background: var(--purple);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.85rem;
+  font-size: 1.45rem;
+  box-shadow: 0 0 0 4px var(--lavender);
+}
+
+/* Small lilac underline beneath the section headings */
+body[data-page="home"] #services h2::after,
+.area-sec h2::after,
+.reviews-sec h2::after,
+.process-sec h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--lilac);
+  margin: 0.65rem auto 0;
+}
+
+/* Gentle fade-in as sections scroll into view (added by site.js; skipped when motion is reduced) */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

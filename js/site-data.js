@@ -31,6 +31,50 @@ window.SITE_DATA = {
   "home": {
     "badge": "♥ Proudly Serving North Houston and Surrounding Areas",
     "slogan": "Keeping your pets comfortable, cared for, and loved at home.",
+    "petsLabel": "Pets I've watched",
+    "petsCta": "See all photos",
+    "petsPhotos": [
+      {
+        "src": "assets/band-01.webp",
+        "alt": "Laughing black and white dog",
+        "focus": "50% 35%"
+      },
+      {
+        "src": "assets/band-02.webp",
+        "alt": "Smiling black and tan Pomeranian",
+        "focus": "50% 10%"
+      },
+      {
+        "src": "assets/band-03.webp",
+        "alt": "Happy brown dog on the grass",
+        "focus": "60% 55%"
+      },
+      {
+        "src": "assets/band-04.webp",
+        "alt": "Yorkshire terrier lying on the grass",
+        "focus": "50% 50%"
+      },
+      {
+        "src": "assets/band-05.webp",
+        "alt": "Smiling white dog with its tongue out",
+        "focus": "45% 60%"
+      },
+      {
+        "src": "assets/band-06.webp",
+        "alt": "Fluffy brown Pomeranian",
+        "focus": "50% 15%"
+      },
+      {
+        "src": "assets/band-07.webp",
+        "alt": "Dog holding a toy bone",
+        "focus": "50% 45%"
+      },
+      {
+        "src": "assets/band-08.webp",
+        "alt": "Pug sitting on deck steps",
+        "focus": "50% 45%"
+      }
+    ],
     "title": "Amber's Loving Paws",
     "titleEm": "Pet Care",
     "lead": "Your pet is family, and finding someone trustworthy to care for them is so important. At Amber's Loving Paws, I am here to give you the confidence and reassurance that your beloved pet is in the most caring and capable hands.",

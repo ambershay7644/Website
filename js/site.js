@@ -143,6 +143,70 @@
     );
   }
 
+  /** Edge-to-edge band of real client pet photos under the first card on the home page */
+  function petsBand(h) {
+    var photos = h.petsPhotos || [];
+    if (!photos.length) return "";
+    var label = h.petsLabel || "Pets I've watched";
+    var imgs = photos
+      .map(function (p) {
+        return (
+          '<img src="' +
+          esc(p.src) +
+          '" alt="' +
+          esc(p.alt || "") +
+          '"' +
+          (p.focus ? ' style="object-position:' + esc(p.focus) + '"' : "") +
+          ' loading="lazy" decoding="async" />'
+        );
+      })
+      .join("");
+    return (
+      '<section class="pets-band" aria-label="' +
+      esc(label) +
+      '">' +
+      '<span class="pets-band-pill pets-band-top"><span class="paw-ico" aria-hidden="true"></span>' +
+      esc(label) +
+      "</span>" +
+      '<div class="pets-band-row">' +
+      imgs +
+      "</div>" +
+      '<a class="pets-band-pill pets-band-bottom" href="gallery.html">' +
+      esc(h.petsCta || "See all photos") +
+      "</a></section>"
+    );
+  }
+
+  /** Home page: sections below the first screen fade in gently as they scroll into view */
+  function wireReveal(root) {
+    if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    var pending = [];
+    root.querySelectorAll(".pets-band, .section").forEach(function (sec) {
+      // Anything already on the first screen stays as it is, so nothing flashes on load.
+      if (sec.getBoundingClientRect().top < window.innerHeight) return;
+      sec.classList.add("reveal");
+      pending.push(sec);
+    });
+    if (!pending.length) return;
+    // Plain position check on scroll: a section shows as soon as its top edge is on screen,
+    // and anything the visitor has already scrolled past is shown too, so nothing can stay hidden.
+    function check() {
+      var line = window.innerHeight * 0.94;
+      pending = pending.filter(function (sec) {
+        if (sec.getBoundingClientRect().top > line) return true;
+        sec.classList.add("in");
+        return false;
+      });
+      if (!pending.length) {
+        window.removeEventListener("scroll", check);
+        window.removeEventListener("resize", check);
+      }
+    }
+    window.addEventListener("scroll", check, { passive: true });
+    window.addEventListener("resize", check);
+    check();
+  }
+
   /** Home section for recurring weekly dog walks */
   function weeklySection(h, biz) {
     if (!h.weeklyTitle) return "";
@@ -532,6 +596,7 @@
       '" alt="' +
       esc(biz.name) +
       '" /></div></div></section>' +
+      petsBand(h) +
       '<section class="section section-tight" id="services"><div class="container text-center">' +
       '<span class="section-label">' +
       esc(h.servicesLabel) +
@@ -550,7 +615,7 @@
       book.target +
       ">View Availability</a></div></div></section>" +
       weeklySection(h, biz) +
-      '<section class="section"><div class="container"><div class="area-banner">' +
+      '<section class="section area-sec"><div class="container"><div class="area-banner">' +
       '<span class="section-label">' +
       esc(h.areaLabel) +
       "</span><h2>" +
@@ -567,7 +632,7 @@
       '<a class="btn btn-primary" href="contact.html">' +
       esc(h.areaCta) +
       "</a></div></div></div></section>" +
-      '<section class="section section-tight"><div class="container text-center">' +
+      '<section class="section section-tight process-sec"><div class="container text-center">' +
       '<span class="section-label">' +
       esc(h.processLabel) +
       "</span><h2>" +
@@ -577,7 +642,7 @@
       '</p><div class="process-grid">' +
       processSteps(data.process) +
       "</div></div></section>" +
-      '<section class="section"><div class="container text-center">' +
+      '<section class="section reviews-sec"><div class="container text-center">' +
       '<span class="section-label">' +
       esc(h.reviewsLabel) +
       "</span><h2>" +
@@ -603,6 +668,7 @@
       '">' +
       esc(h.ctaBandSecondary) +
       "</a></div></div></div></section>";
+    wireReveal(root);
   }
 
   function fillAbout(data) {
