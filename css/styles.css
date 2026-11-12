@@ -2260,3 +2260,18 @@ body[data-page="home"] #services h2::after,
     transition: none;
   }
 }
+
+/* Lone last review: when the review count leaves one card alone in the last row (3 columns), centre it */
+@media (min-width: 901px) {
+  .review-grid > .review-card:last-child:nth-child(3n + 1) {
+    grid-column: 2;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .review-grid > .review-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 0.625rem);
+  }
+}

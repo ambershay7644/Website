@@ -409,6 +409,10 @@ window.SITE_DATA = {
   ],
   "reviews": [
     {
+      "quote": "Amber is wonderful with our dogs. She is very reliable and prompt. It is truly apparent how much she loves animals. She is always great about sending us pictures during her visit and responds quickly to any communication requests. Thank you so much Amber!",
+      "author": "Gayle S."
+    },
+    {
       "quote": "Amber is thoughtful, intuitive and conscientious. She truly enjoys and understands how to provide great pet care. She can be trusted and is service oriented.",
       "author": "Lynnette W."
     },
