@@ -9,8 +9,9 @@ window.SITE_DATA = {
     "phone": "832-948-2184",
     "phoneHref": "tel:8329482184",
     "email": "ambertaylor3003@gmail.com",
-    "logo": "assets/logo-main.png",
-    "logoMark": "assets/logo-heart.png",
+    "logo": "assets/logo-main-680.webp",
+    "logoSmall": "assets/logo-main-240.webp",
+    "logoMark": "assets/logo-heart.webp",
     "logoSub": "Pet Care",
     "bookingUrl": "https://app.scritches.io/book/ambers-loving-paws-",
     "bookingLabel": "Book online",
@@ -89,7 +90,7 @@ window.SITE_DATA = {
     "lead": "Your pet is family, and finding someone trustworthy to care for them is so important. At Amber's Loving Paws, I am here to give you the confidence and reassurance that your beloved pet is in the most caring and capable hands.",
     "ownerLabel": "Amber Taylor",
     "ownerTitle": "Caring, capable hands for your beloved pets",
-    "ownerPhoto": "assets/about-amber.jpg",
+    "ownerPhoto": "assets/about-amber.webp",
     "ownerPhotoAlt": "Amber Taylor, owner of Amber's Loving Paws Pet Care",
     "ownerBio": "I'm Amber, the heart of Amber's Loving Paws Pet Care. I provide in-home pet care for families across North Houston and surrounding communities—with the same love and attention I'd want for my own animals.",
     "ownerStory": [
@@ -143,89 +144,89 @@ window.SITE_DATA = {
   },
   "gallery": [
     {
-      "src": "assets/gallery-frenchies.jpg",
+      "src": "assets/gallery-frenchies.webp",
       "alt": "Two happy French bulldogs looking up during a walk"
     },
     {
-      "src": "assets/gallery-01-white-fluffy.jpg",
+      "src": "assets/gallery-01-white-fluffy.webp",
       "alt": "Fluffy white dog looking at the camera"
     },
     {
-      "src": "assets/gallery-02-husky.jpg",
+      "src": "assets/gallery-02-husky.webp",
       "alt": "Husky dog sitting on a deck looking up"
     },
     {
-      "src": "assets/gallery-03-frenchie-look-up.jpg",
+      "src": "assets/gallery-03-frenchie-look-up.webp",
       "alt": "French bulldog looking up at the camera"
     },
     {
-      "src": "assets/gallery-04-frenchie-closeup.jpg",
+      "src": "assets/gallery-04-frenchie-closeup.webp",
       "alt": "Close-up of a French bulldog face"
     },
     {
-      "src": "assets/gallery-05-frenchie-under-table.jpg",
+      "src": "assets/gallery-05-frenchie-under-table.webp",
       "alt": "French bulldog resting under a table"
     },
     {
-      "src": "assets/gallery-11-dog.jpg",
+      "src": "assets/gallery-11-dog.webp",
       "alt": "Happy dog client photo"
     },
     {
-      "src": "assets/gallery-06-frenchies-on-bed.jpg",
+      "src": "assets/gallery-06-frenchies-on-bed.webp",
       "alt": "Two French bulldogs resting on a bed"
     },
     {
-      "src": "assets/gallery-07-two-dogs-couch.jpg",
+      "src": "assets/gallery-07-two-dogs-couch.webp",
       "alt": "Two dogs cuddling on a couch"
     },
     {
-      "src": "assets/gallery-08-frenchie-bed-look.jpg",
+      "src": "assets/gallery-08-frenchie-bed-look.webp",
       "alt": "French bulldog looking at the camera on a bed"
     },
     {
-      "src": "assets/gallery-09-dog-window.jpg",
+      "src": "assets/gallery-09-dog-window.webp",
       "alt": "Dog looking out a sunny window"
     },
     {
-      "src": "assets/gallery-10-frenchie-red-collar.jpg",
+      "src": "assets/gallery-10-frenchie-red-collar.webp",
       "alt": "French bulldog with a red collar on a bed"
     },
     {
-      "src": "assets/gallery-12-sloan.jpg",
+      "src": "assets/gallery-12-sloan.webp",
       "alt": "Sloan the French bulldog"
     },
     {
-      "src": "assets/gallery-13-dog-chair.jpg",
+      "src": "assets/gallery-13-dog-chair.webp",
       "alt": "Happy dog sitting in a chair looking at the camera"
     },
     {
-      "src": "assets/gallery-14-sloan-tongue.jpg",
+      "src": "assets/gallery-14-sloan-tongue.webp",
       "alt": "French bulldog with tongue out looking up"
     },
     {
-      "src": "assets/gallery-15-dog-with-bone.jpg",
+      "src": "assets/gallery-15-dog-with-bone.webp",
       "alt": "Tan and black dog on the grass holding a toy bone in its mouth"
     },
     {
-      "src": "assets/gallery-16-dog-on-couch.jpg",
+      "src": "assets/gallery-16-dog-on-couch.webp",
       "alt": "Smiling tan and black dog relaxing on a couch with a blanket"
     },
     {
-      "src": "assets/gallery-17-pomeranian-smile.jpg",
+      "src": "assets/gallery-17-pomeranian-smile.webp",
       "alt": "Fluffy black and tan Pomeranian smiling on a wooden deck",
       "focus": "50% 0%"
     },
     {
-      "src": "assets/gallery-18-brown-pomeranian.jpg",
+      "src": "assets/gallery-18-brown-pomeranian.webp",
       "alt": "Fluffy brown Pomeranian smiling at the camera",
       "focus": "50% 0%"
     },
     {
-      "src": "assets/gallery-19-yorkie.jpg",
+      "src": "assets/gallery-19-yorkie.webp",
       "alt": "Yorkshire terrier standing on a wooden deck looking up"
     },
     {
-      "src": "assets/gallery-20-pomeranian-kitchen.jpg",
+      "src": "assets/gallery-20-pomeranian-kitchen.webp",
       "alt": "Black and tan Pomeranian smiling and reaching up with one paw"
     }
   ],

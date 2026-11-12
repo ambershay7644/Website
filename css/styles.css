@@ -37,7 +37,7 @@ body {
   font-family: var(--font-body);
   color: var(--text);
   background-color: #f5eef8;
-  background-image: url("../assets/floral-bg.jpg");
+  background-image: url("../assets/floral-bg.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

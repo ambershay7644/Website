@@ -185,8 +185,8 @@
       '<div class="footer-grid">' +
       '<div class="footer-brand">' +
       '<img src="' +
-      esc(biz.logo || "assets/logo-main.png") +
-      '" alt="" />' +
+      esc(biz.logoSmall || biz.logo || "assets/logo-main.png") +
+      '" alt="" width="240" height="240" loading="lazy" decoding="async" />' +
       "<div><h3>" +
       esc(biz.name) +
       "</h3><p>" +
@@ -292,7 +292,7 @@
       esc(s.image) +
       '" alt="' +
       esc(s.name) +
-      '" />' +
+      '" loading="lazy" decoding="async" />' +
       "<h3>" +
       esc(s.name) +
       "</h3>" +
@@ -874,7 +874,7 @@
                 esc(item.alt || "Happy pet") +
                 '"' +
                 (item.focus ? ' style="object-position:' + esc(item.focus) + '"' : "") +
-                ' loading="lazy" />' +
+                ' loading="lazy" decoding="async" />' +
                 "</div>"
               );
             })
