@@ -166,6 +166,9 @@ window.SITE_DATA = {
     "label": "Our Services",
     "title": "Happy pets, happy hearts",
     "lead": "Explore my services below. Rates may vary by pet needs and schedule—ask if you have questions.",
+    "pricesTitle": "Prices at a glance",
+    "pricesHint": "Tap a service to see what's included.",
+    "readMoreLabel": "Read more",
     "processLabel": "How it works",
     "processTitle": "You're part of the process",
     "processLead": "We keep communication open and decisions shared—no black boxes or surprises.",
@@ -289,6 +292,13 @@ window.SITE_DATA = {
       "descriptionEmphasis": "Required for new clients.",
       "description": "A complimentary intro so we can meet, review routines, and make sure everyone's comfortable.",
       "descriptionLong": "Every great pet care relationship starts with a meet and greet! All new clients are required to schedule a complimentary meet and greet before their first booking. This gives us the opportunity to get to know each other, meet your pets, learn about their routine, and answer any questions you may have. This visit helps build trust, ensures we're a great fit, and allows your pets to become familiar with me before their first visit.",
+      "points": [
+        "Required for all new clients before a first booking",
+        "I meet your pets and learn their routine",
+        "Time for any questions you have",
+        "Your pets get familiar with me before the first visit"
+      ],
+      "priceBadge": "Free",
       "image": "assets/service-meet-and-greet.webp",
       "button": "View Availability"
     },
@@ -302,6 +312,12 @@ window.SITE_DATA = {
       "descriptionEmphasis": "",
       "description": "One-on-one overnight care in your pet's own home—plus mail, plants, and garbage looked after.",
       "descriptionLong": "Your pet deserves more than just a sitter, they deserve someone who truly cares. My overnight pet sitting service allows your pet to stay in the comfort of their own home while receiving personalized, one-on-one care tailored to their unique routine and needs. From evening cuddles to morning potty breaks, I'll make sure they feel safe, loved, and cared for every step of the way, so you can enjoy your time away with peace of mind. While I'm there, I'm also happy to help around the house—bringing in the mail, watering plants, and taking out the garbage—so you come home to a happy pet and a cared-for home.",
+      "points": [
+        "Your pet stays in the comfort of their own home",
+        "One-on-one care that follows their routine",
+        "Evening cuddles and morning potty breaks",
+        "Mail brought in, plants watered, garbage taken out"
+      ],
       "image": "assets/service-overnight.webp",
       "button": "View Availability"
     },
@@ -315,6 +331,12 @@ window.SITE_DATA = {
       "descriptionEmphasis": "",
       "description": "Feeding, potty breaks, playtime, and check-ins tailored to your pet.",
       "descriptionLong": "Whether you have a playful pup, an independent cat, or a beloved small pet, my drop-in visits are designed to provide personalized care while you're away. Each visit is tailored to your pet's routine and may include feeding, fresh water, potty breaks, playtime, litter box or habitat care, medication (if needed), and plenty of love and attention. Every visit is focused on keeping your pet's day as familiar, fun, and stress-free as possible until you're home again.",
+      "points": [
+        "For dogs, cats and small pets",
+        "Feeding, fresh water and potty breaks",
+        "Playtime, plus litter box or habitat care",
+        "Medication given if needed"
+      ],
       "image": "assets/service-drop-in.webp",
       "button": "View Availability"
     },
@@ -328,6 +350,11 @@ window.SITE_DATA = {
       "descriptionEmphasis": "",
       "description": "Walks tailored to your dog's pace, personality, and energy.",
       "descriptionLong": "Every dog is different, and every walk should be too. Whether you have a high-energy pup who loves to explore, a dog who needs to burn off some extra energy, or a senior companion who enjoys a slower stroll, each walk is tailored to your dog's unique pace, personality, and routine. My goal is to make every outing a fun, enriching experience that leaves your pup happy, fulfilled, and excited for their next adventure.",
+      "points": [
+        "Tailored to your dog's pace, personality and routine",
+        "For high-energy pups and slow-strolling seniors alike",
+        "A fun, enriching outing every time"
+      ],
       "image": "assets/service-dog-walking.webp",
       "button": "View Availability"
     },
@@ -341,6 +368,12 @@ window.SITE_DATA = {
       "descriptionEmphasis": "",
       "description": "Dedicated daytime companionship at home for pets who need extra company.",
       "descriptionLong": "Some pets simply do better with a little extra company throughout the day. Whether you have a puppy, a senior pet, a pet with separation anxiety, or one who just loves having someone around, my Extended In-Home Pet Daycare service provides dedicated, one-on-one companionship in the comfort of your pet's own home. During my stay, I'll follow your pet's routine with plenty of potty breaks, meals, playtime, enrichment, cuddles, and personalized attention. It's the perfect option for pet parents who want the peace of mind of knowing their furry family member has loving companionship while they're away.",
+      "points": [
+        "One-on-one company in your pet's own home",
+        "Great for puppies, seniors and pets with separation anxiety",
+        "Potty breaks, meals, playtime and enrichment",
+        "Cuddles and personalized attention"
+      ],
       "image": "assets/service-extended-day-pet-care.webp",
       "button": "View Availability"
     },
@@ -353,7 +386,12 @@ window.SITE_DATA = {
       "priceUnit": "",
       "descriptionEmphasis": "",
       "description": "Safe rides to vet appointments, training sessions, and more.",
-      "descriptionLong": "Life gets busy, and sometimes you just need an extra helping hand. My Pet Taxi service offers safe, dependable transportation for your pets to and from vet appointments, training sessions, daycare, boarding, and more. Your pet's comfort and safety are always my top priorities from pickup to drop-off.",
+      "descriptionLong": "Life gets busy, and sometimes you just need an extra helping hand. My Pet Taxi service offers safe, dependable transportation for your pets to and from vet appointments, training sessions, and more. Your pet's comfort and safety are always my top priorities from pickup to drop-off.",
+      "points": [
+        "Rides to vet appointments, training sessions and more",
+        "Safe, dependable pickup and drop-off",
+        "Your pet's comfort and safety come first"
+      ],
       "image": "assets/service-taxi.webp",
       "button": "View Availability"
     },
@@ -367,6 +405,11 @@ window.SITE_DATA = {
       "descriptionEmphasis": "",
       "description": "Gentle bath, blow dry, and brush-out—solo or as an add-on.",
       "descriptionLong": "Keep your pet looking and feeling their best with a gentle bath, blow dry, and brush-out. Available as a standalone service or as an add-on to walks, drop-in visits, and overnight pet sitting, so you can come home to a clean, fresh, and happy companion.",
+      "points": [
+        "Gentle bath, blow dry and brush-out",
+        "On its own, or added to a walk, drop-in visit or overnight",
+        "Come home to a clean, fresh, happy pet"
+      ],
       "image": "assets/service-baths.webp",
       "button": "View Availability"
     }

@@ -371,6 +371,149 @@
     );
   }
 
+  /** Services page: price list on top, then one block per service (photo rows on wide screens, opening rows on phones) */
+  function servicesList(data, p, biz) {
+    var list = data.services || [];
+    var book = bookAttrs(biz || {});
+    var hasDigit = function (s) {
+      return /\d/.test(String(s.price || ""));
+    };
+    var menu =
+      '<nav class="svc-menu" aria-label="' +
+      esc(p.pricesTitle || "Prices") +
+      '"><h2>' +
+      esc(p.pricesTitle || "Prices") +
+      "</h2>" +
+      list
+        .map(function (s) {
+          return (
+            '<a href="#svc-' +
+            esc(s.id) +
+            '"><span>' +
+            esc(s.name) +
+            '</span><i aria-hidden="true"></i><em>' +
+            (s.priceNote ? "<small>from </small>" : "") +
+            esc(s.price) +
+            (s.priceUnit ? " <small>" + esc(s.priceUnit) + "</small>" : "") +
+            "</em></a>"
+          );
+        })
+        .join("") +
+      (p.pricesHint ? "<p>" + esc(p.pricesHint) + "</p>" : "") +
+      "</nav>";
+    var items = list
+      .map(function (s, i) {
+        var open = i === 0;
+        var pts = (s.points || [])
+          .map(function (t) {
+            return "<li>" + esc(t) + "</li>";
+          })
+          .join("");
+        var note = s.priceNote ? "<small>" + esc(s.priceNote) + "</small>" : "";
+        var unit = s.priceUnit ? "<span>" + esc(s.priceUnit) + "</span>" : "";
+        var word = hasDigit(s) ? "" : " svc-price-word";
+        return (
+          '<article class="svc' +
+          (open ? " is-open" : "") +
+          '" id="svc-' +
+          esc(s.id) +
+          '">' +
+          '<h3 class="svc-head-h"><button class="svc-head" type="button" aria-expanded="' +
+          (open ? "true" : "false") +
+          '" aria-controls="svc-body-' +
+          esc(s.id) +
+          '"><img class="svc-thumb" src="' +
+          esc(s.image) +
+          '" alt="" loading="lazy" decoding="async" />' +
+          '<span class="svc-head-name">' +
+          esc(s.name) +
+          '</span><span class="svc-head-price' +
+          word +
+          '">' +
+          note +
+          "<b>" +
+          esc(s.priceBadge || s.price) +
+          "</b>" +
+          unit +
+          '</span><span class="svc-chev" aria-hidden="true"></span></button></h3>' +
+          '<div class="svc-body" id="svc-body-' +
+          esc(s.id) +
+          '"><div class="svc-pic"><img class="svc-photo" src="' +
+          esc(s.image) +
+          '" alt="' +
+          esc(s.name) +
+          '" loading="lazy" decoding="async" /><div class="svc-badge' +
+          word +
+          '">' +
+          note +
+          "<b>" +
+          esc(s.priceBadge || s.price) +
+          "</b>" +
+          unit +
+          '</div></div><div class="svc-text"><h3 class="svc-title">' +
+          esc(s.name) +
+          "</h3>" +
+          (pts ? '<ul class="svc-points">' + pts + "</ul>" : "") +
+          (pts && s.descriptionLong
+            ? '<details class="svc-more"><summary>' +
+              esc(p.readMoreLabel || "Read more") +
+              "</summary><p>" +
+              esc(s.descriptionLong) +
+              "</p></details>"
+            : '<p class="svc-long">' + esc(s.descriptionLong || s.description) + "</p>") +
+          '<a class="btn btn-primary" href="' +
+          esc(book.href) +
+          '"' +
+          book.target +
+          ">" +
+          esc(s.button || "View Availability") +
+          "</a></div></div></article>"
+        );
+      })
+      .join("");
+    return (
+      '<section class="section section-tight"><div class="container">' +
+      menu +
+      '<div class="svc-list">' +
+      items +
+      "</div></div></section>"
+    );
+  }
+
+  /** Services page: rows open and close on phones; a price-list line jumps to its service and opens it */
+  function wireServices(root) {
+    function setOpen(item, open) {
+      item.classList.toggle("is-open", open);
+      var b = item.querySelector(".svc-head");
+      if (b) b.setAttribute("aria-expanded", open ? "true" : "false");
+    }
+    function goTo(item, smooth) {
+      setOpen(item, true);
+      var calm = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      item.scrollIntoView({ behavior: smooth && !calm ? "smooth" : "auto", block: "start" });
+    }
+    root.addEventListener("click", function (e) {
+      var t = e.target;
+      var head = t.closest && t.closest(".svc-head");
+      if (head) {
+        var item = head.closest(".svc");
+        setOpen(item, !item.classList.contains("is-open"));
+        return;
+      }
+      var link = t.closest && t.closest(".svc-menu a");
+      if (!link) return;
+      var target = document.getElementById(link.getAttribute("href").slice(1));
+      if (!target) return;
+      e.preventDefault();
+      goTo(target, true);
+      if (window.history && history.replaceState) history.replaceState(null, "", link.getAttribute("href"));
+    });
+    if (/^#svc-/.test(location.hash)) {
+      var first = document.getElementById(location.hash.slice(1));
+      if (first) goTo(first, false);
+    }
+  }
+
   function cityChips(cities) {
     return (cities || [])
       .map(function (c) {
@@ -795,12 +938,6 @@
     var biz = data.business;
     var book = bookAttrs(biz);
     var root = document.getElementById("page-root");
-    var cards = (data.services || [])
-      .map(function (s) {
-        return serviceCard(s, true, biz);
-      })
-      .join("");
-
     root.innerHTML =
       '<section class="page-hero"><div class="container">' +
       '<span class="section-label">' +
@@ -810,9 +947,7 @@
       '</h1><p class="lead">' +
       esc(p.lead) +
       "</p></div></section>" +
-      '<section class="section section-tight"><div class="container"><div class="price-grid">' +
-      cards +
-      "</div></div></section>" +
+      servicesList(data, p, biz) +
       '<section class="section"><div class="container text-center">' +
       '<span class="section-label">' +
       esc(p.processLabel) +
@@ -839,6 +974,7 @@
       '">' +
       esc(biz.phone) +
       "</a></div></div></div></section>";
+    wireServices(root);
   }
 
   function fillContact(data) {
