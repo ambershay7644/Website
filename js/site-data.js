@@ -352,8 +352,8 @@ window.SITE_DATA = {
       "priceNote": "Starting at",
       "priceUnit": "",
       "descriptionEmphasis": "",
-      "description": "Safe transport to vet visits, daycare, and more.",
-      "descriptionLong": "Life gets busy, and sometimes you just need an extra helping hand. My Pet Taxi service offers safe, dependable transportation for your pets to and from veterinary visits, daycare, boarding, and more. Your pet's comfort and safety are always my top priorities from pickup to drop-off.",
+      "description": "Safe rides to vet appointments, training sessions, and more.",
+      "descriptionLong": "Life gets busy, and sometimes you just need an extra helping hand. My Pet Taxi service offers safe, dependable transportation for your pets to and from vet appointments, training sessions, daycare, boarding, and more. Your pet's comfort and safety are always my top priorities from pickup to drop-off.",
       "image": "assets/service-taxi.webp",
       "button": "View Availability"
     },
