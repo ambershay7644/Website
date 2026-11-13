@@ -3976,3 +3976,125 @@ body[data-page="home"] .reviews-sec .review-card cite::before {
     opacity: 0.55;
   }
 }
+
+/* —— Home on phones: ribbon rows —— photo on the left, service name on a purple ribbon, price under it —— */
+@media (max-width: 700px) {
+  body[data-page="home"] .home-svc-row {
+    display: block;
+    position: relative;
+    padding: 0 0 0 104px;
+    min-height: 100px;
+    overflow: hidden;
+  }
+  /* the photo is pinned to the left edge and fills the row's height (as a normal item it stretched the row) */
+  body[data-page="home"] .home-svc-row img {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 104px;
+    height: 100%;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+    object-fit: cover;
+  }
+  body[data-page="home"] .home-svc-name {
+    display: block;
+    background: linear-gradient(90deg, var(--purple-deep), var(--purple-mid));
+    color: #ffffff;
+    font-size: 1.22rem;
+    padding: 0.42rem 0.7rem 0.48rem;
+  }
+  body[data-page="home"] .home-svc-name::before {
+    /* a drawn white shape, not the text heart symbol: phones show that symbol as a red heart */
+    content: "";
+    display: inline-block;
+    width: 0.6em;
+    height: 0.6em;
+    margin-right: 0.35rem;
+    vertical-align: middle;
+    position: relative;
+    top: -0.06em;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+  body[data-page="home"] .home-svc-price {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 0.4rem;
+    text-align: left;
+    padding: 0.7rem 2.7rem 0.6rem 0.7rem;
+  }
+  body[data-page="home"] .home-svc-price small,
+  body[data-page="home"] .home-svc-price span {
+    display: inline;
+    white-space: nowrap;
+  }
+  body[data-page="home"] .home-svc-go {
+    position: absolute;
+    right: 0.6rem;
+    bottom: 0.7rem;
+  }
+}
+/* narrower phones: "STARTING AT" sits on its own line above the price so nothing is squeezed */
+@media (max-width: 400px) {
+  body[data-page="home"] .home-svc-name {
+    font-size: 1.15rem;
+  }
+  body[data-page="home"] .home-svc-price {
+    padding-top: 0.5rem;
+  }
+  body[data-page="home"] .home-svc-price small {
+    flex-basis: 100%;
+  }
+}
+@media (max-width: 360px) {
+  body[data-page="home"] .home-svc-row {
+    padding: 0 0 0 86px;
+  }
+  body[data-page="home"] .home-svc-row img {
+    width: 86px;
+  }
+  body[data-page="home"] .home-svc-name {
+    font-size: 1.1rem;
+    padding: 0.4rem 0.55rem 0.45rem;
+  }
+  body[data-page="home"] .home-svc-price {
+    padding-left: 0.55rem;
+  }
+}
+
+/* —— Home on phones: path down the side —— no white box, bigger number circles joined by a dotted path —— */
+@media (max-width: 700px) {
+  body[data-page="home"] .process-sec .process-grid {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    padding: 0 0.2rem;
+  }
+  body[data-page="home"] .process-sec .process-step {
+    border-top: 0;
+    padding: 0.75rem 0;
+    gap: 0.1rem 1rem;
+    position: relative;
+  }
+  body[data-page="home"] .process-sec .process-step .step-num {
+    width: 54px;
+    height: 54px;
+    font-size: 1.55rem;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 0 0 4px #ffffff, 0 0 0 6px var(--lilac);
+  }
+  /* the dotted piece between one number and the next */
+  body[data-page="home"] .process-sec .process-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 24.5px;
+    top: calc(0.75rem + 62px);
+    bottom: calc(-0.75rem + 8px);
+    border-left: 5px dotted var(--purple-mid);
+    opacity: 0.55;
+  }
+}
