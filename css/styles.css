@@ -3067,13 +3067,13 @@ body[data-page="home"] #services h2::after,
 }
 
 /* —— About v2: Bold purple —— title band and reviews band edge to edge, echoing the home page bands —— */
-body[data-page="about"] .page-hero {
+.page-hero {
   position: relative;
   background: linear-gradient(180deg, #4a2c7a, #6a3fa6);
   padding: 2.75rem 0 2.5rem;
   margin-bottom: 2.75rem;
 }
-body[data-page="about"] .page-hero::after {
+.page-hero::after {
   content: "";
   position: absolute;
   left: 0;
@@ -3083,18 +3083,18 @@ body[data-page="about"] .page-hero::after {
   pointer-events: none;
   background: radial-gradient(circle at 12px 0, #6a3fa6 11.5px, transparent 12px) 0 0 / 24px 12px repeat-x;
 }
-body[data-page="about"] .page-hero .container {
+.page-hero .container {
   background: transparent;
   border: 0;
   box-shadow: none;
   padding-top: 0;
   padding-bottom: 0;
 }
-body[data-page="about"] .page-hero h1,
-body[data-page="about"] .page-hero .lead {
+.page-hero h1,
+.page-hero .lead {
   color: #ffffff;
 }
-body[data-page="about"] .page-hero .section-label {
+.page-hero .section-label {
   color: #e8ddf5;
 }
 .about-v2-main {
@@ -3158,7 +3158,7 @@ body[data-page="about"] .page-hero .section-label {
   box-shadow: var(--shadow);
 }
 @media (max-width: 700px) {
-  body[data-page="about"] .page-hero {
+  .page-hero {
     padding: 2rem 0 1.9rem;
     margin-bottom: 2.25rem;
   }
@@ -3171,4 +3171,52 @@ body[data-page="about"] .page-hero .section-label {
     height: 34px;
     font-size: 1.05rem;
   }
+}
+
+/* —— Soft boxes under the title band —— Services price list and Contact booking box: lavender with a purple border —— */
+.svc-menu {
+  background: linear-gradient(135deg, #efe6fa, #faf7fc);
+  color: var(--purple-deep);
+  border: 2px solid var(--purple);
+}
+.svc-menu h2,
+.svc-menu a {
+  color: var(--purple-deep);
+}
+.svc-menu a i {
+  border-bottom-color: rgba(74, 44, 122, 0.35);
+}
+.svc-menu a em {
+  color: var(--purple);
+}
+.svc-menu p {
+  color: var(--text-muted);
+  opacity: 1;
+}
+.svc-extra-note {
+  border-top-color: rgba(74, 44, 122, 0.35);
+}
+.svc-extra-note span {
+  opacity: 1;
+  color: var(--text-muted);
+}
+body[data-page="contact"] .cta-band {
+  background: linear-gradient(135deg, #efe6fa, #faf7fc);
+  border: 2px solid var(--purple);
+  box-shadow: var(--shadow);
+}
+body[data-page="contact"] .cta-band h2 {
+  color: var(--purple-deep);
+}
+body[data-page="contact"] .cta-band p {
+  color: var(--text-muted);
+}
+body[data-page="contact"] .cta-band .btn-primary {
+  background: var(--purple);
+  color: #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+body[data-page="contact"] .cta-band .btn-primary:hover {
+  background: var(--purple-deep);
+  color: #ffffff;
 }
