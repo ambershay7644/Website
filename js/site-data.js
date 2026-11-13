@@ -365,7 +365,7 @@ window.SITE_DATA = {
       "src": "assets/gallery-24-bella-and-tuffy.webp",
       "name": "Bella and Tuffy",
       "alt": "Bella and Tuffy looking up from the living room floor",
-      "focus": "50% 75%"
+      "focus": "50% 100%"
     },
     {
       "src": "assets/gallery-25-bella-couch.webp",
@@ -377,7 +377,7 @@ window.SITE_DATA = {
       "src": "assets/gallery-26-tuffy.webp",
       "name": "Tuffy",
       "alt": "Tuffy looking up at the camera",
-      "focus": "50% 20%"
+      "focus": "50% 55%"
     },
     {
       "src": "assets/gallery-27-layla-blanket.webp",
