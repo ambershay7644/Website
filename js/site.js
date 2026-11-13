@@ -596,7 +596,7 @@
           "<blockquote>“" +
           esc(r.quote) +
           "”</blockquote>" +
-          "<cite>— " +
+          '<cite><span class="cite-dash">— </span>' +
           esc(r.author) +
           "</cite></article>"
         );

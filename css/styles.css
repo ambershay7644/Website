@@ -3685,28 +3685,40 @@ button.gallery-tile-photo:hover img {
   }
 }
 
-/* —— Home reviews: neat —— each box fits its words; round quote mark on top —— */
+/* —— Home reviews: name ribbon —— each box fits its words; the client's name on a purple ribbon —— */
 body[data-page="home"] .reviews-sec .review-card {
-  position: relative;
-  padding-top: 4.3rem;
+  padding-bottom: 0;
+  overflow: hidden;
 }
-/* the mark sits inside the box: anything hanging outside a box is cut where the columns break */
-body[data-page="home"] .reviews-sec .review-card::before {
-  content: "\201C";
-  position: absolute;
-  left: 50%;
-  top: 1rem;
-  transform: translateX(-50%);
-  width: 2.6rem;
-  height: 2.6rem;
-  border-radius: 50%;
-  background: var(--purple);
+body[data-page="home"] .reviews-sec .review-card blockquote {
+  margin-bottom: 1.2rem;
+}
+body[data-page="home"] .reviews-sec .review-card cite {
+  display: block;
+  margin: 0 -1.5rem;
+  padding: 0.5rem 0.5rem 0.55rem;
+  background: linear-gradient(90deg, var(--purple-deep), var(--purple-mid));
   color: #ffffff;
   font-family: var(--font-display);
-  font-size: 2.6rem;
-  line-height: 1.28;
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.2;
   text-align: center;
-  box-shadow: 0 0 0 4px var(--lavender);
+}
+body[data-page="home"] .reviews-sec .review-card .cite-dash {
+  display: none;
+}
+body[data-page="home"] .reviews-sec .review-card cite::before {
+  /* a drawn white shape, not the text heart symbol: phones show that symbol as a red heart */
+  content: "";
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+  position: relative;
+  top: -0.06em;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") center / contain no-repeat;
 }
 /* from 601px up (below that the boxes are stacked one per row): boxes flow down columns instead of sitting in rows */
 @media (min-width: 601px) {
