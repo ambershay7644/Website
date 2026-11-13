@@ -378,6 +378,18 @@
     var hasDigit = function (s) {
       return /\d/.test(String(s.price || ""));
     };
+    var extraNote =
+      p.extraPets && p.extraPets.length
+        ? '<div class="svc-extra-note"><strong>' +
+          esc(p.extraPetsTitle || "Additional pets") +
+          "</strong>" +
+          p.extraPets
+            .map(function (x) {
+              return "<div><b>" + esc(x.amount) + "</b><span>" + esc(x.services) + "</span></div>";
+            })
+            .join("") +
+          "</div>"
+        : "";
     var menu =
       '<nav class="svc-menu" aria-label="' +
       esc(p.pricesTitle || "Prices") +
@@ -399,6 +411,7 @@
           );
         })
         .join("") +
+      extraNote +
       (p.pricesHint ? "<p>" + esc(p.pricesHint) + "</p>" : "") +
       "</nav>";
     var items = list
@@ -415,6 +428,7 @@
         return (
           '<article class="svc' +
           (open ? " is-open" : "") +
+          (s.extraPet ? " svc-has-extra" : "") +
           '" id="svc-' +
           esc(s.id) +
           '">' +
@@ -435,6 +449,9 @@
           esc(s.priceBadge || s.price) +
           "</b>" +
           unit +
+          (s.extraPet
+            ? '<span class="svc-head-extra">' + esc(s.extraPet) + " " + esc(p.extraPetShort || "extra pet") + "</span>"
+            : "") +
           '</span><span class="svc-chev" aria-hidden="true"></span></button></h3>' +
           '<div class="svc-body" id="svc-body-' +
           esc(s.id) +
@@ -453,6 +470,9 @@
           '</div></div><div class="svc-text"><h3 class="svc-title">' +
           esc(s.name) +
           "</h3>" +
+          (s.extraPet
+            ? '<p class="svc-extra">' + esc(s.extraPet) + " " + esc(p.extraPetLabel || "per extra pet") + "</p>"
+            : "") +
           (pts ? '<ul class="svc-points">' + pts + "</ul>" : "") +
           (pts && s.descriptionLong
             ? '<details class="svc-more"><summary>' +

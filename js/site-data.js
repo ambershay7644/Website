@@ -168,6 +168,19 @@ window.SITE_DATA = {
     "lead": "Explore my services below. Rates may vary by pet needs and schedule—ask if you have questions.",
     "pricesTitle": "Prices at a glance",
     "pricesHint": "Tap a service to see what's included.",
+    "extraPetsTitle": "Additional pets",
+    "extraPetLabel": "per extra pet",
+    "extraPetShort": "extra pet",
+    "extraPets": [
+      {
+        "amount": "+$5 per extra pet",
+        "services": "Drop-in visits, dog walking, daycare and Pet Taxi"
+      },
+      {
+        "amount": "+$10 per extra pet",
+        "services": "Overnight pet sitting"
+      }
+    ],
     "readMoreLabel": "Read more",
     "processLabel": "How it works",
     "processTitle": "You're part of the process",
@@ -309,6 +322,7 @@ window.SITE_DATA = {
       "price": "$55",
       "priceNote": "Starting at",
       "priceUnit": "per night",
+      "extraPet": "+$10",
       "descriptionEmphasis": "",
       "description": "One-on-one overnight care in your pet's own home—plus mail, plants, and garbage looked after.",
       "descriptionLong": "Your pet deserves more than just a sitter, they deserve someone who truly cares. My overnight pet sitting service allows your pet to stay in the comfort of their own home while receiving personalized, one-on-one care tailored to their unique routine and needs. From evening cuddles to morning potty breaks, I'll make sure they feel safe, loved, and cared for every step of the way, so you can enjoy your time away with peace of mind. While I'm there, I'm also happy to help around the house—bringing in the mail, watering plants, and taking out the garbage—so you come home to a happy pet and a cared-for home.",
@@ -328,6 +342,7 @@ window.SITE_DATA = {
       "price": "$25",
       "priceNote": "Starting at",
       "priceUnit": "per visit",
+      "extraPet": "+$5",
       "descriptionEmphasis": "",
       "description": "Feeding, potty breaks, playtime, and check-ins tailored to your pet.",
       "descriptionLong": "Whether you have a playful pup, an independent cat, or a beloved small pet, my drop-in visits are designed to provide personalized care while you're away. Each visit is tailored to your pet's routine and may include feeding, fresh water, potty breaks, playtime, litter box or habitat care, medication (if needed), and plenty of love and attention. Every visit is focused on keeping your pet's day as familiar, fun, and stress-free as possible until you're home again.",
@@ -347,6 +362,7 @@ window.SITE_DATA = {
       "price": "$30",
       "priceNote": "Starting at",
       "priceUnit": "per walk",
+      "extraPet": "+$5",
       "descriptionEmphasis": "",
       "description": "Walks tailored to your dog's pace, personality, and energy.",
       "descriptionLong": "Every dog is different, and every walk should be too. Whether you have a high-energy pup who loves to explore, a dog who needs to burn off some extra energy, or a senior companion who enjoys a slower stroll, each walk is tailored to your dog's unique pace, personality, and routine. My goal is to make every outing a fun, enriching experience that leaves your pup happy, fulfilled, and excited for their next adventure.",
@@ -365,6 +381,7 @@ window.SITE_DATA = {
       "price": "$55",
       "priceNote": "Starting at",
       "priceUnit": "",
+      "extraPet": "+$5",
       "descriptionEmphasis": "",
       "description": "Dedicated daytime companionship at home for pets who need extra company.",
       "descriptionLong": "Some pets simply do better with a little extra company throughout the day. Whether you have a puppy, a senior pet, a pet with separation anxiety, or one who just loves having someone around, my Extended In-Home Pet Daycare service provides dedicated, one-on-one companionship in the comfort of your pet's own home. During my stay, I'll follow your pet's routine with plenty of potty breaks, meals, playtime, enrichment, cuddles, and personalized attention. It's the perfect option for pet parents who want the peace of mind of knowing their furry family member has loving companionship while they're away.",
@@ -384,6 +401,7 @@ window.SITE_DATA = {
       "price": "$25",
       "priceNote": "Starting at",
       "priceUnit": "",
+      "extraPet": "+$5",
       "descriptionEmphasis": "",
       "description": "Safe rides to vet appointments, training sessions, and more.",
       "descriptionLong": "Life gets busy, and sometimes you just need an extra helping hand. My Pet Taxi service offers safe, dependable transportation for your pets to and from vet appointments, training sessions, and more. Your pet's comfort and safety are always my top priorities from pickup to drop-off.",
