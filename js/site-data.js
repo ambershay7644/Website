@@ -94,6 +94,7 @@ window.SITE_DATA = {
     "processLead": "We keep communication open and decisions shared—no black boxes or surprises.",
     "reviewsLabel": "Why choose Amber's Loving Paws?",
     "reviewsTitle": "What clients are saying",
+    "reviewsMoreLabel": "Read all {count} reviews",
     "reviewInviteTitle": "Have I cared for your pet?",
     "reviewInviteText": "A quick Google review means the world to me, and helps other pet parents find care they can trust.",
     "reviewInviteButton": "Leave a Google review",

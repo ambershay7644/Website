@@ -3220,3 +3220,177 @@ body[data-page="contact"] .cta-band .btn-primary:hover {
   background: var(--purple-deep);
   color: #ffffff;
 }
+
+/* —— Home, shorter on phones —— slim service rows, compact steps list, three reviews then "read all" —— */
+.home-svc-rows,
+.home-reviews-more {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  /* Services: slim rows instead of the tall cards */
+  body[data-page="home"] #services .price-grid-featured {
+    display: none;
+  }
+  .home-svc-rows {
+    display: grid;
+    gap: 0.7rem;
+    margin: 1.25rem 0;
+    text-align: left;
+  }
+  .home-svc-row {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 0.7rem 0.85rem;
+    min-height: 60px;
+    text-decoration: none;
+    color: inherit;
+  }
+  .home-svc-row:focus-visible {
+    outline: 3px solid var(--purple-soft);
+    outline-offset: 2px;
+  }
+  .home-svc-row img {
+    flex: none;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 0 3px var(--lilac);
+    background: var(--lavender);
+  }
+  .home-svc-name {
+    flex: 1;
+    min-width: 0;
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--purple-deep);
+    font-size: 1.3rem;
+    line-height: 1.15;
+  }
+  .home-svc-price {
+    flex: none;
+    text-align: right;
+    line-height: 1.1;
+  }
+  .home-svc-price small {
+    display: block;
+    font-size: 0.6rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--purple-soft);
+  }
+  .home-svc-price b {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.55rem;
+    color: var(--purple);
+  }
+  .home-svc-price.home-svc-word b {
+    font-size: 1.05rem;
+  }
+  .home-svc-price span {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+  .home-svc-go {
+    flex: none;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--lavender);
+    color: var(--purple-deep);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  /* Steps: one compact numbered list */
+  .process-sec .process-grid {
+    display: block;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    padding: 0.3rem 1.1rem;
+    text-align: left;
+  }
+  .process-sec .process-step {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.1rem 0.85rem;
+    align-items: start;
+    background: none;
+    border: 0;
+    border-top: 1px solid var(--border);
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0.85rem 0;
+    margin: 0;
+    text-align: left;
+  }
+  .process-sec .process-step:first-child {
+    border-top: 0;
+  }
+  .process-sec .process-step .step-num {
+    grid-row: 1 / span 2;
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    font-size: 1.05rem;
+  }
+  .process-sec .process-step h3 {
+    margin: 0.15rem 0 0;
+    font-size: 1.25rem;
+    text-align: left;
+  }
+  .process-sec .process-step p {
+    margin: 0;
+    font-size: 0.93rem;
+    line-height: 1.45;
+    text-align: left;
+  }
+
+  /* Reviews: the first three, then a button for the rest */
+  body[data-page="home"] .reviews-sec .review-grid:not(.is-all) .review-card:nth-child(n + 4) {
+    display: none;
+  }
+  .home-reviews-more {
+    display: block;
+    width: 100%;
+    margin: 1rem 0 0;
+  }
+  .home-reviews-more[hidden] {
+    display: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .home-svc-row {
+    gap: 0.6rem;
+    padding: 0.65rem 0.7rem;
+  }
+  .home-svc-row img {
+    display: none;
+  }
+  .home-svc-name {
+    font-size: 1.15rem;
+  }
+  .home-svc-price b {
+    font-size: 1.35rem;
+  }
+  .home-svc-go {
+    display: none;
+  }
+}

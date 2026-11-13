@@ -735,6 +735,47 @@
     update();
   }
 
+  /** Home page, phones only: slim service rows that open the service on the Services page */
+  function homeServiceRows(list) {
+    return (
+      '<div class="home-svc-rows">' +
+      (list || [])
+        .map(function (s) {
+          var word = !/\d/.test(String(s.price || ""));
+          return (
+            '<a class="home-svc-row" href="services.html#svc-' +
+            esc(s.id) +
+            '"><img src="' +
+            esc(s.image) +
+            '" alt="" loading="lazy" decoding="async" /><span class="home-svc-name">' +
+            esc(s.name) +
+            '</span><span class="home-svc-price' +
+            (word ? " home-svc-word" : "") +
+            '">' +
+            (s.priceNote ? "<small>" + esc(s.priceNote) + "</small>" : "") +
+            "<b>" +
+            esc(s.priceBadge || s.price) +
+            "</b>" +
+            (s.priceUnit ? "<span>" + esc(s.priceUnit) + "</span>" : "") +
+            '</span><span class="home-svc-go" aria-hidden="true">›</span></a>'
+          );
+        })
+        .join("") +
+      "</div>"
+    );
+  }
+
+  /** Home page, phones only: button that shows the reviews after the first three */
+  function homeReviewsMore(h, reviews) {
+    var n = (reviews || []).length;
+    if (n <= 3 || !h.reviewsMoreLabel) return "";
+    return (
+      '<button class="btn btn-secondary home-reviews-more" type="button">' +
+      esc(String(h.reviewsMoreLabel).replace("{count}", n)) +
+      "</button>"
+    );
+  }
+
   function fillHome(data) {
     var h = data.home;
     var biz = data.business;
@@ -798,6 +839,7 @@
       '</p><div class="price-grid price-grid-featured">' +
       servicesHtml +
       "</div>" +
+      homeServiceRows(featured) +
       '<div class="btn-row" style="justify-content:center">' +
       '<a class="btn btn-secondary" href="services.html">See all services</a>' +
       '<a class="btn btn-primary" href="' +
@@ -841,6 +883,7 @@
       '</h2><div class="review-grid">' +
       reviewCards(data.reviews) +
       "</div>" +
+      homeReviewsMore(h, data.reviews) +
       reviewInvite(h) +
       "</div></section>" +
       '<section class="section section-tight"><div class="container"><div class="cta-band">' +
@@ -861,6 +904,14 @@
       '">' +
       esc(h.ctaBandSecondary) +
       "</a></div></div></div></section>";
+    var moreBtn = root.querySelector(".home-reviews-more");
+    if (moreBtn) {
+      moreBtn.addEventListener("click", function () {
+        var grid = root.querySelector(".reviews-sec .review-grid");
+        if (grid) grid.classList.add("is-all");
+        moreBtn.hidden = true;
+      });
+    }
     wireReveal(root);
   }
 
