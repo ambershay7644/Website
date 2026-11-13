@@ -224,95 +224,122 @@
   },
   "galleryPage": {
     "label": "Gallery",
+    "hint": "Tap any photo to see it bigger 🐾",
+    "stripTitle": "Your pet could be next",
+    "stripText": "Free meet & greet for new clients.",
+    "stripButton": "Book a Visit",
+    "openLabel": "See this photo larger",
+    "countLabel": "{n} of {total}",
     "title": "Happy pets, happy hearts",
     "lead": "Photos of clients' pets, walks, and snuggles—happy moments from care visits and adventures."
   },
   "gallery": [
     {
       "src": "assets/gallery-frenchies.webp",
-      "alt": "Two happy French bulldogs looking up during a walk"
+      "name": "Willow and Gizmo",
+      "alt": "Willow and Gizmo looking up at the camera"
     },
     {
       "src": "assets/gallery-01-white-fluffy.webp",
-      "alt": "Fluffy white dog looking at the camera"
+      "name": "Willow",
+      "alt": "Willow sitting on a wooden ramp"
     },
     {
       "src": "assets/gallery-02-husky.webp",
-      "alt": "Husky dog sitting on a deck looking up"
+      "name": "Aspen",
+      "alt": "Aspen leaning in beside a smiling woman"
     },
     {
       "src": "assets/gallery-03-frenchie-look-up.webp",
-      "alt": "French bulldog looking up at the camera"
+      "name": "Calvin",
+      "alt": "Calvin up close, looking into the camera"
     },
     {
       "src": "assets/gallery-04-frenchie-closeup.webp",
-      "alt": "Close-up of a French bulldog face"
+      "name": "Calvin",
+      "alt": "Calvin lying back with a big grin"
     },
     {
       "src": "assets/gallery-05-frenchie-under-table.webp",
-      "alt": "French bulldog resting under a table"
+      "name": "Chip",
+      "alt": "Chip with the tip of a tongue showing"
     },
     {
       "src": "assets/gallery-11-dog.webp",
-      "alt": "Happy dog client photo"
+      "name": "Fred",
+      "alt": "Fred on the grass with a big smile"
     },
     {
       "src": "assets/gallery-06-frenchies-on-bed.webp",
-      "alt": "Two French bulldogs resting on a bed"
+      "name": "Drake",
+      "alt": "Drake sitting on the deck steps"
     },
     {
       "src": "assets/gallery-07-two-dogs-couch.webp",
-      "alt": "Two dogs cuddling on a couch"
+      "name": "Drake",
+      "alt": "Drake standing on the lawn"
     },
     {
       "src": "assets/gallery-08-frenchie-bed-look.webp",
-      "alt": "French bulldog looking at the camera on a bed"
+      "name": "Ella",
+      "alt": "Ella smiling by the door"
     },
     {
       "src": "assets/gallery-09-dog-window.webp",
-      "alt": "Dog looking out a sunny window"
+      "name": "Gizmo",
+      "alt": "Gizmo trotting toward the camera"
     },
     {
       "src": "assets/gallery-10-frenchie-red-collar.webp",
-      "alt": "French bulldog with a red collar on a bed"
+      "name": "Megatron",
+      "alt": "Megatron the black cat resting on a cat tree"
     },
     {
       "src": "assets/gallery-12-sloan.webp",
-      "alt": "Sloan the French bulldog"
+      "name": "Sloan",
+      "alt": "Sloan asleep on the couch with tongue out"
     },
     {
       "src": "assets/gallery-13-dog-chair.webp",
-      "alt": "Happy dog sitting in a chair looking at the camera"
+      "name": "Tinker",
+      "alt": "Tinker lying on the grass wearing a bow"
     },
     {
       "src": "assets/gallery-14-sloan-tongue.webp",
-      "alt": "French bulldog with tongue out looking up"
+      "name": "Sloan",
+      "alt": "Sloan in the bathtub"
     },
     {
       "src": "assets/gallery-15-dog-with-bone.webp",
-      "alt": "Tan and black dog on the grass holding a toy bone in its mouth"
+      "name": "Max",
+      "alt": "Max on the grass holding a toy bone"
     },
     {
       "src": "assets/gallery-16-dog-on-couch.webp",
-      "alt": "Smiling tan and black dog relaxing on a couch with a blanket"
+      "name": "TJ",
+      "alt": "TJ relaxing on a couch with a blanket"
     },
     {
       "src": "assets/gallery-17-pomeranian-smile.webp",
-      "alt": "Fluffy black and tan Pomeranian smiling on a wooden deck",
+      "name": "Koda",
+      "alt": "Koda smiling on a wooden deck",
       "focus": "50% 0%"
     },
     {
       "src": "assets/gallery-18-brown-pomeranian.webp",
-      "alt": "Fluffy brown Pomeranian smiling at the camera",
+      "name": "Bear",
+      "alt": "Bear smiling at the camera",
       "focus": "50% 0%"
     },
     {
       "src": "assets/gallery-19-yorkie.webp",
-      "alt": "Yorkshire terrier standing on a wooden deck looking up"
+      "name": "Mocha",
+      "alt": "Mocha standing on a wooden deck looking up"
     },
     {
       "src": "assets/gallery-20-pomeranian-kitchen.webp",
-      "alt": "Black and tan Pomeranian smiling and reaching up with one paw"
+      "name": "Koda",
+      "alt": "Koda smiling and reaching up with one paw"
     }
   ],
   "services": [

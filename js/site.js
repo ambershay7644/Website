@@ -1242,20 +1242,41 @@
     var book = bookAttrs(biz);
     var root = document.getElementById("page-root");
     var items = data.gallery || [];
+    // A Book strip sits after the ninth photo once there are enough photos to break up
+    var stripAt = items.length > 12 && g.stripTitle ? 9 : -1;
+    var strip =
+      stripAt > 0
+        ? '<div class="gallery-strip"><div><h2>' +
+          esc(g.stripTitle) +
+          "</h2>" +
+          (g.stripText ? "<p>" + esc(g.stripText) + "</p>" : "") +
+          '</div><a class="btn" href="' +
+          esc(book.href) +
+          '"' +
+          book.target +
+          ">" +
+          esc(g.stripButton || "Book a Visit") +
+          "</a></div>"
+        : "";
     var tiles =
       items.length > 0
         ? items
-            .map(function (item) {
+            .map(function (item, i) {
               return (
-                '<div class="gallery-tile gallery-tile-photo">' +
-                '<img src="' +
+                '<button class="gallery-tile gallery-tile-photo" type="button" data-photo="' +
+                i +
+                '" aria-label="' +
+                esc((g.openLabel || "See this photo larger") + (item.name ? ": " + item.name : "")) +
+                '"><img src="' +
                 esc(item.src) +
                 '" alt="' +
                 esc(item.alt || "Happy pet") +
                 '"' +
                 (item.focus ? ' style="object-position:' + esc(item.focus) + '"' : "") +
                 ' loading="lazy" decoding="async" />' +
-                "</div>"
+                (item.name ? '<span class="gallery-name">' + esc(item.name) + "</span>" : "") +
+                "</button>" +
+                (i + 1 === stripAt ? strip : "")
               );
             })
             .join("")
@@ -1272,7 +1293,10 @@
       esc(g.lead) +
       "</p></div></section>" +
       '<section class="section section-tight"><div class="container">' +
-      '<div class="gallery-grid">' +
+      (items.length && g.hint ? '<p class="gallery-hint">' + esc(g.hint) + "</p>" : "") +
+      '<div class="gallery-grid' +
+      (stripAt > 0 ? " has-strip" : "") +
+      '">' +
       tiles +
       '</div><div class="btn-row" style="justify-content:center;margin-top:2rem">' +
       '<a class="btn btn-primary" href="' +
@@ -1280,6 +1304,86 @@
       '"' +
       book.target +
       ">Book a Visit</a></div></div></section>";
+    if (items.length) wireGallery(root, items, g);
+  }
+
+  /** Gallery: tap a photo to see it large, with close, previous and next */
+  function wireGallery(root, items, g) {
+    var old = document.querySelector(".photo-view");
+    if (old) old.parentNode.removeChild(old);
+    var view = document.createElement("div");
+    view.className = "photo-view";
+    view.setAttribute("role", "dialog");
+    view.setAttribute("aria-modal", "true");
+    view.setAttribute("aria-label", "Photo");
+    view.hidden = true;
+    view.innerHTML =
+      '<button class="photo-view-btn photo-view-close" type="button" aria-label="Close">×</button>' +
+      '<button class="photo-view-btn photo-view-prev" type="button" aria-label="Previous photo">‹</button>' +
+      '<figure><img alt="" /><figcaption><span class="photo-view-name"></span>' +
+      '<span class="photo-view-count"></span></figcaption></figure>' +
+      '<button class="photo-view-btn photo-view-next" type="button" aria-label="Next photo">›</button>';
+    document.body.appendChild(view);
+    var img = view.querySelector("img");
+    var nameEl = view.querySelector(".photo-view-name");
+    var countEl = view.querySelector(".photo-view-count");
+    var closeBtn = view.querySelector(".photo-view-close");
+    var cur = 0;
+    var opener = null;
+    function show(i) {
+      cur = (i + items.length) % items.length;
+      var it = items[cur];
+      img.src = it.src;
+      img.alt = it.alt || "";
+      nameEl.textContent = it.name || "";
+      countEl.textContent = String(g.countLabel || "{n} of {total}")
+        .replace("{n}", cur + 1)
+        .replace("{total}", items.length);
+    }
+    function open(i, from) {
+      opener = from || null;
+      show(i);
+      view.hidden = false;
+      document.body.classList.add("photo-open");
+      closeBtn.focus();
+    }
+    function close() {
+      view.hidden = true;
+      document.body.classList.remove("photo-open");
+      if (opener && opener.focus) opener.focus();
+    }
+    root.addEventListener("click", function (e) {
+      var t = e.target.closest && e.target.closest("[data-photo]");
+      if (t) open(parseInt(t.getAttribute("data-photo"), 10), t);
+    });
+    view.addEventListener("click", function (e) {
+      var t = e.target;
+      if (t === view || (t.closest && t.closest(".photo-view-close"))) close();
+      else if (t.closest && t.closest(".photo-view-prev")) show(cur - 1);
+      else if (t.closest && t.closest(".photo-view-next")) show(cur + 1);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (view.hidden) return;
+      if (e.key === "Escape") close();
+      else if (e.key === "ArrowLeft") show(cur - 1);
+      else if (e.key === "ArrowRight") show(cur + 1);
+      else if (e.key === "Tab") {
+        // keep the keyboard inside the large view while it is open
+        var btns = [].slice.call(view.querySelectorAll("button"));
+        var at = btns.indexOf(document.activeElement);
+        e.preventDefault();
+        btns[(at + (e.shiftKey ? -1 : 1) + btns.length) % btns.length].focus();
+      }
+    });
+    // swipe left or right on a phone
+    var x0 = null;
+    view.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
+    view.addEventListener("touchend", function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      x0 = null;
+      if (Math.abs(dx) > 45) show(cur + (dx < 0 ? 1 : -1));
+    });
   }
 
   function certCard(c, idx) {

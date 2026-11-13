@@ -3394,3 +3394,211 @@ body[data-page="contact"] .cta-band .btn-primary:hover {
     display: none;
   }
 }
+
+/* —— Gallery v2 —— name tags, Book strip, and a large photo view —— */
+.gallery-hint {
+  text-align: center;
+  font-weight: 800;
+  color: var(--purple);
+  font-size: 0.95rem;
+  margin: 0 0 -0.75rem;
+}
+button.gallery-tile-photo {
+  position: relative;
+  appearance: none;
+  -webkit-appearance: none;
+  font: inherit;
+  margin: 0;
+  cursor: zoom-in;
+  width: 100%;
+}
+button.gallery-tile-photo:focus-visible {
+  outline: 3px solid var(--purple);
+  outline-offset: 3px;
+}
+.gallery-name {
+  position: absolute;
+  left: 0.5rem;
+  bottom: 0.5rem;
+  max-width: calc(100% - 1rem);
+  background: rgba(255, 255, 255, 0.94);
+  color: var(--purple-deep);
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 0.82rem;
+  line-height: 1.3;
+  border-radius: 999px;
+  padding: 0.22rem 0.7rem;
+  box-shadow: var(--shadow-sm);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.gallery-strip {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  background: linear-gradient(135deg, var(--purple-deep), var(--purple-mid));
+  color: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 1.4rem 1.75rem;
+  box-shadow: var(--shadow);
+  text-align: left;
+}
+.gallery-strip h2 {
+  font-size: 1.7rem;
+  line-height: 1.15;
+  color: #ffffff;
+  margin: 0;
+}
+.gallery-strip p {
+  margin: 0.15rem 0 0;
+  font-size: 0.98rem;
+  color: #ffffff;
+  opacity: 0.92;
+}
+.gallery-strip .btn {
+  background: #ffffff;
+  color: var(--purple-deep);
+  box-shadow: none;
+  white-space: nowrap;
+}
+.gallery-strip .btn:hover {
+  background: var(--lavender);
+}
+
+body.photo-open {
+  overflow: hidden;
+}
+.photo-view {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  background: rgba(31, 22, 48, 0.93);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.photo-view[hidden] {
+  display: none;
+}
+.photo-view figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.photo-view img {
+  display: block;
+  max-width: min(92vw, 900px);
+  max-height: 72vh;
+  border-radius: 14px;
+  border: 5px solid #ffffff;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  background: #ffffff;
+}
+.photo-view figcaption {
+  text-align: center;
+  margin-top: 0.8rem;
+}
+.photo-view-name {
+  display: block;
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  line-height: 1.2;
+}
+.photo-view-count {
+  display: block;
+  color: #d9cdee;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+}
+.photo-view-btn {
+  position: absolute;
+  border: 0;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  background: #ffffff;
+  color: var(--purple-deep);
+  font-family: var(--font-body);
+  font-size: 1.6rem;
+  font-weight: 800;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 3px;
+}
+.photo-view-btn:focus-visible {
+  outline: 3px solid var(--lilac);
+  outline-offset: 3px;
+}
+.photo-view-close {
+  top: 1rem;
+  right: 1rem;
+}
+.photo-view-prev {
+  left: 0.75rem;
+  top: 50%;
+  margin-top: -24px;
+}
+.photo-view-next {
+  right: 0.75rem;
+  top: 50%;
+  margin-top: -24px;
+}
+
+/* Tablets (two photos per row): show the strip after eight photos, so no photo sits alone above it */
+@media (min-width: 601px) and (max-width: 900px) {
+  .gallery-grid.has-strip > .gallery-tile-photo:nth-child(-n + 8) {
+    order: 1;
+  }
+  .gallery-grid.has-strip > .gallery-strip {
+    order: 2;
+  }
+  .gallery-grid.has-strip > .gallery-tile-photo:nth-child(n + 9) {
+    order: 3;
+  }
+}
+
+@media (max-width: 600px) {
+  /* with the strip in the grid, the first photo stays full width so the rows above the strip are full */
+  .gallery-grid.has-strip > .gallery-tile-photo:first-child {
+    grid-column: 1 / -1;
+  }
+  .gallery-strip {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.3rem 1.1rem;
+  }
+  .gallery-strip .btn {
+    width: 100%;
+    text-align: center;
+  }
+  .gallery-name {
+    font-size: 0.72rem;
+    left: 0.35rem;
+    bottom: 0.35rem;
+    max-width: calc(100% - 0.7rem);
+    padding: 0.15rem 0.5rem;
+  }
+  .photo-view img {
+    max-width: 94vw;
+    max-height: 66vh;
+  }
+  .photo-view-prev {
+    left: 0.4rem;
+  }
+  .photo-view-next {
+    right: 0.4rem;
+  }
+}
