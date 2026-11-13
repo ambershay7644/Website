@@ -3949,6 +3949,22 @@ body[data-page="home"] .reviews-sec .review-card cite::before {
     font-size: 0.95rem;
   }
 }
+/* tablets: two or three steps per row, with a short last row centred instead of left alone */
+@media (min-width: 701px) and (max-width: 1100px) {
+  body[data-page="home"] .process-sec .process-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  body[data-page="home"] .process-sec .process-step {
+    flex: 0 0 calc((100% - 0.5rem) / 2);
+  }
+}
+@media (min-width: 901px) and (max-width: 1100px) {
+  body[data-page="home"] .process-sec .process-step {
+    flex-basis: calc((100% - 1rem) / 3);
+  }
+}
 @media (min-width: 1101px) {
   body[data-page="home"] .process-sec .process-grid::before {
     content: "";
