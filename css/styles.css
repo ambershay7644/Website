@@ -4098,3 +4098,10 @@ body[data-page="home"] .reviews-sec .review-card cite::before {
     opacity: 0.55;
   }
 }
+
+/* —— Gallery on phones: a lone last photo spans the full width (photos + strip = an odd number of items) —— */
+@media (max-width: 600px) {
+  .gallery-grid.has-strip > .gallery-tile-photo:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}

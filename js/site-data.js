@@ -342,6 +342,60 @@ window.SITE_DATA = {
       "src": "assets/gallery-20-pomeranian-kitchen.webp",
       "name": "Koda",
       "alt": "Koda smiling and reaching up with one paw"
+    },
+    {
+      "src": "assets/gallery-21-tj-asleep.webp",
+      "name": "TJ",
+      "alt": "TJ asleep on a brown leather armchair",
+      "focus": "50% 60%"
+    },
+    {
+      "src": "assets/gallery-22-bella-blanket.webp",
+      "name": "Bella",
+      "alt": "Bella resting on a blanket on the couch",
+      "focus": "50% 55%"
+    },
+    {
+      "src": "assets/gallery-23-bella-and-bear.webp",
+      "name": "Bella and Bear",
+      "alt": "Bella and Bear standing by the kitchen counter",
+      "focus": "50% 40%"
+    },
+    {
+      "src": "assets/gallery-24-bella-and-tuffy.webp",
+      "name": "Bella and Tuffy",
+      "alt": "Bella and Tuffy looking up from the living room floor",
+      "focus": "50% 75%"
+    },
+    {
+      "src": "assets/gallery-25-bella-couch.webp",
+      "name": "Bella",
+      "alt": "Bella sitting on a dark leather couch",
+      "focus": "50% 70%"
+    },
+    {
+      "src": "assets/gallery-26-tuffy.webp",
+      "name": "Tuffy",
+      "alt": "Tuffy looking up at the camera",
+      "focus": "50% 20%"
+    },
+    {
+      "src": "assets/gallery-27-layla-blanket.webp",
+      "name": "Layla",
+      "alt": "Layla the cat asleep in a fluffy grey blanket",
+      "focus": "50% 40%"
+    },
+    {
+      "src": "assets/gallery-28-layla-cushion.webp",
+      "name": "Layla",
+      "alt": "Layla the cat curled up asleep on a striped cushion",
+      "focus": "50% 18%"
+    },
+    {
+      "src": "assets/gallery-29-willow-asleep.webp",
+      "name": "Willow",
+      "alt": "Willow asleep on a plaid blanket",
+      "focus": "50% 45%"
     }
   ],
   "services": [
