@@ -864,6 +864,108 @@
     wireReveal(root);
   }
 
+  /** About page: photo, facts and pet photos beside Amber's story in headed parts */
+  function aboutBlock(data, a, biz, book) {
+    var story = a.ownerStory || [];
+    var parts = a.storyParts && a.storyParts.length ? a.storyParts : [{ title: "", paragraphs: story.length }];
+    var at = 0;
+    var partsHtml = parts
+      .map(function (p) {
+        var ps = story.slice(at, at + (p.paragraphs || 0));
+        at += p.paragraphs || 0;
+        if (!ps.length) return "";
+        return (
+          '<div class="about-v2-part">' +
+          (p.title ? "<h3>" + esc(p.title) + "</h3>" : "") +
+          ps
+            .map(function (t) {
+              return "<p>" + esc(t) + "</p>";
+            })
+            .join("") +
+          "</div>"
+        );
+      })
+      .join("");
+    // any paragraphs the parts did not cover still show
+    var rest = story
+      .slice(at)
+      .map(function (t) {
+        return "<p>" + esc(t) + "</p>";
+      })
+      .join("");
+    if (rest) partsHtml += '<div class="about-v2-part">' + rest + "</div>";
+    var facts = (a.facts || [])
+      .map(function (t) {
+        return "<li>" + esc(t) + "</li>";
+      })
+      .join("");
+    var pets = ((data.home && data.home.petsPhotos) || [])
+      .slice(0, 4)
+      .map(function (p) {
+        return (
+          '<img src="' +
+          esc(p.src) +
+          '" alt="' +
+          esc(p.alt || "Happy pet") +
+          '"' +
+          (p.focus ? ' style="object-position:' + esc(p.focus) + '"' : "") +
+          ' loading="lazy" decoding="async" />'
+        );
+      })
+      .join("");
+    var bullets = (a.bullets || [])
+      .map(function (b) {
+        return "<li>" + esc(b) + "</li>";
+      })
+      .join("");
+    return (
+      '<section class="section section-tight"><div class="container about-v2">' +
+      '<div class="about-v2-side">' +
+      (a.ownerPhoto
+        ? '<img class="about-v2-photo" src="' +
+          esc(a.ownerPhoto) +
+          '" alt="' +
+          esc(a.ownerPhotoAlt || a.ownerLabel || biz.name) +
+          '" />'
+        : "") +
+      (facts
+        ? '<div class="about-v2-box about-v2-factsbox"><h3>' +
+          esc(a.factsTitle || "At a glance") +
+          '</h3><ul class="about-v2-facts">' +
+          facts +
+          "</ul></div>"
+        : "") +
+      (pets
+        ? '<div class="about-v2-box about-v2-petsbox"><h3>' +
+          esc(a.petsTitle || "Pets I've watched") +
+          '</h3><div class="about-v2-pets">' +
+          pets +
+          '</div><a class="about-v2-more" href="gallery.html">' +
+          esc(a.petsCta || "See all photos") +
+          " →</a></div>"
+        : "") +
+      "</div>" +
+      '<div class="about-v2-main"><span class="about-v2-label">' +
+      esc(a.ownerLabel) +
+      "</span><h2>" +
+      esc(a.ownerTitle) +
+      '</h2><p class="about-v2-bio">' +
+      esc(a.ownerBio) +
+      '</p><div class="about-v2-btns">' +
+      '<a class="btn btn-primary" href="' +
+      esc(book.href) +
+      '"' +
+      book.target +
+      ">Book a consultation</a>" +
+      '<a class="btn btn-secondary" href="services.html">View services</a></div>' +
+      partsHtml +
+      (a.ownerSignOff ? '<p class="about-v2-sign">' + esc(a.ownerSignOff) + "</p>" : "") +
+      (a.ownerSignature ? '<p class="about-v2-signature">' + esc(a.ownerSignature) + "</p>" : "") +
+      (bullets ? '<ul class="about-v2-check">' + bullets + "</ul>" : "") +
+      "</div></div></section>"
+    );
+  }
+
   function fillAbout(data) {
     var a = data.about;
     var biz = data.business;
@@ -906,32 +1008,7 @@
       '</h1><p class="lead">' +
       esc(a.lead) +
       "</p></div></section>" +
-      '<section class="section section-tight"><div class="container split about-split">' +
-      '<div class="split-visual about-visual"><img src="' +
-      esc(aboutImg) +
-      '" alt="' +
-      esc(aboutImgAlt) +
-      '" /></div>' +
-      '<div class="split-content"><span class="section-label">' +
-      esc(a.ownerLabel) +
-      "</span><h2>" +
-      esc(a.ownerTitle) +
-      '</h2><p class="lead">' +
-      esc(a.ownerBio) +
-      "</p>" +
-      (story
-        ? '<div class="about-story">' + story + signOff + signature + "</div>"
-        : "") +
-      aboutPhotoBlock +
-      '<ul class="checklist">' +
-      bullets +
-      '</ul><div class="btn-row">' +
-      '<a class="btn btn-primary" href="' +
-      esc(book.href) +
-      '"' +
-      book.target +
-      ">Book a consultation</a>" +
-      '<a class="btn btn-secondary" href="services.html">View services</a></div></div></div></section>' +
+      aboutBlock(data, a, biz, book) +
       '<section class="section"><div class="container text-center">' +
       '<span class="section-label">' +
       esc(a.reviewsLabel) +

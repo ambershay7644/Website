@@ -2818,3 +2818,250 @@ body[data-page="home"] #services h2::after,
     gap: 0.6rem;
   }
 }
+
+/* —— About v2 —— photo, facts and pet photos beside the story; story in headed parts; photo first on phones —— */
+.about-v2 {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: 2.25rem;
+  align-items: start;
+}
+.about-v2-side {
+  display: grid;
+  gap: 1.25rem;
+}
+.about-v2-photo {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: 50% 22%;
+  border-radius: 22px;
+  border: 6px solid #ffffff;
+  box-shadow: 0 0 0 4px var(--lilac), var(--shadow);
+  background: var(--lavender);
+}
+.about-v2-box {
+  background: linear-gradient(135deg, var(--lavender), #f6f0fc);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  padding: 1.25rem 1.4rem;
+}
+.about-v2-box h3 {
+  font-family: var(--font-display);
+  color: var(--purple-deep);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0 0 0.7rem;
+}
+.about-v2-facts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.55rem;
+}
+.about-v2-facts li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-weight: 700;
+  color: var(--purple-deep);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+.about-v2-facts li::before {
+  content: "\2713";
+  flex: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  background: var(--purple);
+  color: #ffffff;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.about-v2-pets {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.6rem;
+}
+.about-v2-pets img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 14px;
+  background: #ffffff;
+}
+.about-v2-more {
+  display: inline-block;
+  margin-top: 0.8rem;
+  padding: 0.25rem 0;
+  font-weight: 800;
+  color: var(--purple);
+  text-decoration: none;
+}
+.about-v2-more:hover,
+.about-v2-more:focus-visible {
+  text-decoration: underline;
+}
+.about-v2-main {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  padding: 1.75rem 2rem;
+}
+.about-v2-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--purple);
+  margin-bottom: 0.5rem;
+}
+.about-v2-main h2 {
+  font-family: var(--font-display);
+  color: var(--purple-deep);
+  font-size: 2.3rem;
+  line-height: 1.12;
+  margin: 0 0 0.8rem;
+}
+.about-v2-main h2::after {
+  display: none;
+}
+.about-v2-bio {
+  font-size: 1.12rem;
+  line-height: 1.6;
+  color: #1f1630;
+  font-weight: 600;
+  margin: 0 0 1.2rem;
+}
+.about-v2-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 0 0 1.5rem;
+}
+.about-v2-part {
+  padding-top: 1.1rem;
+  margin-top: 1.1rem;
+  border-top: 1px solid var(--border);
+}
+.about-v2-part h3 {
+  font-family: var(--font-display);
+  color: var(--purple-deep);
+  font-size: 1.55rem;
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+}
+.about-v2-part p {
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  line-height: 1.7;
+  margin: 0 0 0.9rem;
+}
+.about-v2-sign {
+  font-weight: 700;
+  color: #1f1630;
+  margin: 1rem 0 0.2rem;
+}
+.about-v2-signature {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.5rem;
+  color: var(--purple);
+  margin: 0 0 1.2rem;
+}
+.about-v2-check {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.about-v2-check li {
+  position: relative;
+  padding: 0.3rem 0 0.3rem 1.6rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.45;
+}
+.about-v2-check li::before {
+  content: "\2665";
+  position: absolute;
+  left: 0.1rem;
+  top: 0.32rem;
+  color: var(--purple-soft);
+  font-size: 0.85rem;
+}
+
+/* Tablets and small laptops: photo beside the facts and pet photos, story below (no tall gap) */
+@media (max-width: 1099px) {
+  .about-v2 {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .about-v2-side {
+    grid-template-columns: minmax(0, 280px) minmax(0, 1fr);
+    align-items: stretch;
+  }
+  .about-v2-photo {
+    grid-row: 1 / span 2;
+    height: 100%;
+    min-height: 320px;
+    aspect-ratio: auto;
+  }
+  .about-v2-pets {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .about-v2-main {
+    padding: 1.5rem 1.5rem;
+  }
+  .about-v2-main h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .about-v2 {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  /* photo first, then the story card, then facts and pet photos */
+  .about-v2-side {
+    display: contents;
+  }
+  .about-v2-photo {
+    order: -3;
+    grid-row: auto;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 1 / 1;
+    object-position: 50% 18%;
+    max-width: 440px;
+    justify-self: center;
+  }
+  .about-v2-main {
+    order: -2;
+    padding: 1.25rem 1.2rem;
+  }
+  .about-v2-main h2 {
+    font-size: 1.9rem;
+  }
+  .about-v2-btns .btn {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+  .about-v2-pets {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.45rem;
+  }
+  .about-v2-pets img {
+    border-radius: 10px;
+  }
+}

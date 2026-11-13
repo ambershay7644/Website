@@ -148,6 +148,28 @@
     ],
     "ownerSignOff": "Looking forward to meeting you and your pet!",
     "ownerSignature": "—Amber",
+    "storyParts": [
+      {
+        "title": "Why I started",
+        "paragraphs": 1
+      },
+      {
+        "title": "Care in your pet's own home",
+        "paragraphs": 2
+      },
+      {
+        "title": "The best part of my job",
+        "paragraphs": 2
+      }
+    ],
+    "factsTitle": "At a glance",
+    "facts": [
+      "13 years of experience",
+      "Red Cross Cat & Dog First Aid certified",
+      "Pet Sitters International member"
+    ],
+    "petsTitle": "Pets I've watched",
+    "petsCta": "See all photos",
     "bullets": [
       "Thoughtful, service-oriented care clients trust",
       "Clear communication and photo updates",
