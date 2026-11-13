@@ -3065,3 +3065,110 @@ body[data-page="home"] #services h2::after,
     border-radius: 10px;
   }
 }
+
+/* —— About v2: Bold purple —— title band and reviews band edge to edge, echoing the home page bands —— */
+body[data-page="about"] .page-hero {
+  position: relative;
+  background: linear-gradient(180deg, #4a2c7a, #6a3fa6);
+  padding: 2.75rem 0 2.5rem;
+  margin-bottom: 2.75rem;
+}
+body[data-page="about"] .page-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -11px;
+  height: 12px;
+  pointer-events: none;
+  background: radial-gradient(circle at 12px 0, #6a3fa6 11.5px, transparent 12px) 0 0 / 24px 12px repeat-x;
+}
+body[data-page="about"] .page-hero .container {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+body[data-page="about"] .page-hero h1,
+body[data-page="about"] .page-hero .lead {
+  color: #ffffff;
+}
+body[data-page="about"] .page-hero .section-label {
+  color: #e8ddf5;
+}
+.about-v2-main {
+  border-top: 6px solid var(--purple);
+  counter-reset: about-part;
+}
+.about-v2-part h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.about-v2-part h3::before {
+  counter-increment: about-part;
+  content: counter(about-part);
+  flex: none;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--purple);
+  color: #ffffff;
+  font-size: 1.15rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0 4px var(--lavender);
+}
+.about-v2-factsbox {
+  background: linear-gradient(135deg, var(--purple-deep), var(--purple-mid));
+  border-color: transparent;
+  box-shadow: var(--shadow);
+}
+.about-v2-factsbox h3,
+.about-v2-factsbox .about-v2-facts li {
+  color: #ffffff;
+}
+.about-v2-factsbox .about-v2-facts li::before {
+  background: #ffffff;
+  color: var(--purple-deep);
+  font-weight: 800;
+}
+.about-v2-pets img {
+  border: 3px solid #ffffff;
+  box-shadow: var(--shadow-sm);
+}
+.about-reviews {
+  background: linear-gradient(180deg, #e8ddf5, #f1e9fa);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 3.25rem 0;
+  margin: 2.5rem 0;
+}
+.about-reviews > .container.text-center {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.about-reviews .review-card {
+  box-shadow: var(--shadow);
+}
+@media (max-width: 700px) {
+  body[data-page="about"] .page-hero {
+    padding: 2rem 0 1.9rem;
+    margin-bottom: 2.25rem;
+  }
+  .about-reviews {
+    padding: 2.5rem 0;
+    margin: 2rem 0;
+  }
+  .about-v2-part h3::before {
+    width: 34px;
+    height: 34px;
+    font-size: 1.05rem;
+  }
+}

@@ -1009,7 +1009,7 @@
       esc(a.lead) +
       "</p></div></section>" +
       aboutBlock(data, a, biz, book) +
-      '<section class="section"><div class="container text-center">' +
+      '<section class="section about-reviews"><div class="container text-center">' +
       '<span class="section-label">' +
       esc(a.reviewsLabel) +
       "</span><h2>" +
