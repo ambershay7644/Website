@@ -1171,29 +1171,29 @@
       "</p></div></section>" +
       bookingBanner +
       '<section class="section section-tight"><div class="container contact-grid">' +
-      '<div class="contact-card"><h3>' +
+      '<div class="contact-card contact-card-purple"><h3>' +
       esc(c.cardTitle) +
       "</h3>" +
-      '<div class="contact-line"><div class="icon" aria-hidden="true">📞</div><div><strong>Phone / text</strong>' +
+      '<div class="contact-line"><div class="icon icon-phone" aria-hidden="true"></div><div><strong>Phone / text</strong>' +
       '<a href="' +
       esc(biz.phoneHref) +
       '">' +
       esc(biz.phone) +
       "</a></div></div>" +
-      '<div class="contact-line"><div class="icon" aria-hidden="true">✉️</div><div><strong>Email</strong>' +
+      '<div class="contact-line"><div class="icon icon-mail" aria-hidden="true"></div><div><strong>Email</strong>' +
       '<a href="mailto:' +
       esc(biz.email) +
       '">' +
       esc(biz.email) +
       "</a></div></div>" +
-      '<div class="contact-line"><div class="icon" aria-hidden="true">💜</div><div><strong>Owner</strong><span>' +
+      '<div class="contact-line"><div class="icon icon-heart" aria-hidden="true"></div><div><strong>Owner</strong><span>' +
       esc(biz.owner) +
       " · " +
       esc(biz.name) +
       "</span></div></div>" +
-      '<div class="contact-line"><div class="icon" aria-hidden="true">📍</div><div><strong>Service area</strong><span>North Houston & surrounding communities</span></div></div>' +
+      '<div class="contact-line"><div class="icon icon-pin" aria-hidden="true"></div><div><strong>Service area</strong><span>North Houston & surrounding communities</span></div></div>' +
       (biz.social && biz.social.length
-        ? '<div class="contact-line"><div class="icon" aria-hidden="true">📷</div><div><strong>Follow along</strong>' +
+        ? '<div class="contact-line"><div class="icon icon-cam" aria-hidden="true"></div><div><strong>Follow along</strong>' +
           '<ul class="contact-social">' +
           socialItems(biz) +
           "</ul></div></div>"
@@ -1208,10 +1208,10 @@
           '">Call</a></div>'
         : "") +
       '<p class="form-note" style="margin-top:1rem">' +
-      esc(c.locationNote) +
-      '</p><p class="form-note">' +
-      esc((data.cities || []).join(" · ")) +
-      "</p></div>" +
+      esc(String(c.locationNote || "").replace(/^\s*\uD83D\uDC3E\s*/, "")) +
+      '</p><div class="contact-towns">' +
+      (data.cities || []).map(function (t) { return "<span>" + esc(t) + "</span>"; }).join("") +
+      "</div></div>" +
       '<div class="contact-card"><h3>' +
       esc(c.formTitle) +
       '</h3><form id="contact-form" class="contact-form">' +

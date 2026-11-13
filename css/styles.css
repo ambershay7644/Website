@@ -3741,3 +3741,141 @@ body[data-page="home"] .reviews-sec .review-card cite::before {
     columns: 3;
   }
 }
+
+/* —— Contact: purple card —— the "Contact me!" card in deep purple, round drawn icons, towns as tags —— */
+.contact-card-purple {
+  background: linear-gradient(160deg, var(--purple-deep), var(--purple-mid));
+  color: #ffffff;
+  border: 0;
+  box-shadow: var(--shadow);
+}
+.contact-card-purple h3 {
+  color: #ffffff;
+  font-size: 1.9rem;
+  margin-bottom: 0.4rem;
+}
+.contact-card-purple .contact-line {
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.8rem 0;
+  margin: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+/* drawn shapes, not emoji: emoji look different on every phone */
+.contact-card-purple .contact-line .icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 24px;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.25);
+}
+.contact-card-purple .icon-phone {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234a2c7a' d='M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z'/%3E%3C/svg%3E");
+}
+.contact-card-purple .icon-mail {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234a2c7a' d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E");
+}
+.contact-card-purple .icon-heart {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234a2c7a' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+}
+.contact-card-purple .icon-pin {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234a2c7a' d='M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z'/%3E%3C/svg%3E");
+}
+.contact-card-purple .icon-cam {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%234a2c7a' d='M9 2L7.17 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2h-3.17L15 2H9zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-1.8a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4z'/%3E%3C/svg%3E");
+}
+.contact-card-purple .contact-line strong {
+  color: #f0e6fc;
+}
+.contact-card-purple .contact-line a,
+.contact-card-purple .contact-line span {
+  color: #ffffff;
+  font-size: 1.12rem;
+  font-weight: 700;
+}
+.contact-card-purple .contact-line a:hover,
+.contact-card-purple .contact-line a:focus-visible {
+  color: #ffffff;
+  text-decoration: underline;
+}
+.contact-card-purple .contact-social a {
+  text-decoration: underline;
+}
+.contact-card-purple .contact-quick {
+  margin-top: 1.2rem;
+}
+.contact-card-purple .btn-primary,
+.contact-card-purple .btn-primary:hover {
+  background: #ffffff;
+  color: var(--purple-deep);
+  border-color: #ffffff;
+}
+.contact-card-purple .btn-secondary,
+.contact-card-purple .btn-secondary:hover {
+  background: transparent;
+  color: #ffffff;
+  border-color: #ffffff;
+}
+.contact-card-purple .btn-primary:hover {
+  background: var(--lavender);
+}
+.contact-card-purple .btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+.contact-card-purple .btn:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+.contact-card-purple .form-note {
+  color: rgba(255, 255, 255, 0.92);
+}
+.contact-towns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+}
+.contact-towns span {
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #ffffff;
+  border-radius: 999px;
+  padding: 0.22rem 0.7rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+@media (max-width: 700px) {
+  .contact-card-purple .contact-line {
+    gap: 0.7rem;
+  }
+  .contact-card-purple .contact-line .icon {
+    width: 44px;
+    height: 44px;
+  }
+  .contact-card-purple .contact-line a,
+  .contact-card-purple .contact-line span {
+    font-size: 0.95rem;
+  }
+}
+/* very small phones: slimmer card edges and icons so the email address stays on one line */
+@media (max-width: 360px) {
+  .contact-card-purple {
+    padding: 1.4rem 1rem;
+  }
+  .contact-card-purple .contact-line {
+    gap: 0.5rem;
+  }
+  .contact-card-purple .contact-line .icon {
+    width: 36px;
+    height: 36px;
+    background-size: 19px;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.25);
+  }
+  .contact-card-purple .contact-line a,
+  .contact-card-purple .contact-line span {
+    font-size: 0.84rem;
+  }
+}
