@@ -2275,3 +2275,77 @@ body[data-page="home"] #services h2::after,
     width: calc(50% - 0.625rem);
   }
 }
+
+/* Google review invite card under the home page reviews */
+.review-invite {
+  margin-top: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  text-align: left;
+  padding: 1.5rem 2rem;
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--lavender), #f6f0fc);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+.review-invite-badge {
+  flex: none;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-sm);
+}
+.review-invite-text {
+  flex: 1;
+}
+.review-invite-text .stars {
+  color: #d4a017;
+  letter-spacing: 0.08em;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+.review-invite-text h3 {
+  font-family: var(--font-display);
+  color: var(--purple-deep);
+  font-size: 1.6rem;
+  margin: 0 0 0.25rem;
+  line-height: 1.15;
+}
+.review-invite-text p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.98rem;
+}
+.review-invite-btn {
+  flex: none;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.review-invite .rv-g {
+  flex: none;
+  vertical-align: middle;
+}
+.review-invite-btn .rv-g {
+  background: #fff;
+  border-radius: 50%;
+  padding: 3px;
+  box-sizing: content-box;
+}
+@media (max-width: 700px) {
+  .review-invite {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 1.25rem;
+    gap: 1rem;
+  }
+  .review-invite-btn {
+    white-space: normal;
+  }
+}
