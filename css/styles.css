@@ -3684,3 +3684,48 @@ button.gallery-tile-photo:hover img {
     padding: 0.8rem 0.2rem 0.3rem;
   }
 }
+
+/* —— Home reviews: neat —— each box fits its words; round quote mark on top —— */
+body[data-page="home"] .reviews-sec .review-card {
+  position: relative;
+  padding-top: 4.3rem;
+}
+/* the mark sits inside the box: anything hanging outside a box is cut where the columns break */
+body[data-page="home"] .reviews-sec .review-card::before {
+  content: "\201C";
+  position: absolute;
+  left: 50%;
+  top: 1rem;
+  transform: translateX(-50%);
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  background: var(--purple);
+  color: #ffffff;
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  line-height: 1.28;
+  text-align: center;
+  box-shadow: 0 0 0 4px var(--lavender);
+}
+/* from 601px up (below that the boxes are stacked one per row): boxes flow down columns instead of sitting in rows */
+@media (min-width: 601px) {
+  body[data-page="home"] .reviews-sec .review-grid {
+    display: block;
+    columns: 2;
+    column-gap: 1.25rem;
+  }
+  body[data-page="home"] .reviews-sec .review-grid > .review-card {
+    display: block;
+    width: auto;
+    margin: 0 0 1.25rem;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+}
+@media (min-width: 901px) {
+  body[data-page="home"] .reviews-sec .review-grid {
+    columns: 3;
+  }
+}
