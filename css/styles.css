@@ -3879,3 +3879,84 @@ body[data-page="home"] .reviews-sec .review-card cite::before {
     font-size: 0.84rem;
   }
 }
+
+/* —— Home: service ribbons —— bigger photo, service name on a purple ribbon with a white heart under it —— */
+@media (min-width: 701px) {
+  body[data-page="home"] #services .price-grid-featured .price-card-compact {
+    padding-top: 0;
+  }
+  body[data-page="home"] #services .price-grid-featured .price-card-compact .service-photo {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    margin: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  /* the ribbon sits under the photo, never over it, so no pet is covered */
+  body[data-page="home"] #services .price-grid-featured .price-card-compact h3 {
+    margin: -0.45rem 0 0.3rem;
+    padding: 0.5rem 0.4rem 0.6rem;
+    background: linear-gradient(90deg, var(--purple-deep), var(--purple-mid));
+    color: #ffffff;
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.2;
+    text-align: center;
+  }
+  body[data-page="home"] #services .price-grid-featured .price-card-compact h3::before {
+    /* a drawn white shape, not the text heart symbol: phones show that symbol as a red heart */
+    content: "";
+    display: inline-block;
+    width: 0.6em;
+    height: 0.6em;
+    margin-right: 0.35rem;
+    vertical-align: middle;
+    position: relative;
+    top: -0.06em;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23ffffff' d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+}
+
+/* —— Home: steps on a path —— no boxes, big number circles, dotted path when all five sit in one row —— */
+@media (min-width: 701px) {
+  body[data-page="home"] .process-sec .process-grid {
+    position: relative;
+    gap: 1.75rem 0.5rem;
+  }
+  body[data-page="home"] .process-sec .process-step {
+    background: none;
+    border: 0;
+    box-shadow: none;
+    padding: 0 0.7rem;
+  }
+  body[data-page="home"] .process-sec .process-step .step-num {
+    width: 72px;
+    height: 72px;
+    margin: 0 auto 1rem;
+    font-size: 2.1rem;
+    line-height: 1;
+    box-shadow: 0 0 0 6px #ffffff, 0 0 0 9px var(--lilac), var(--shadow-sm);
+    position: relative;
+    z-index: 1;
+  }
+  body[data-page="home"] .process-sec .process-step h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.4rem;
+  }
+  body[data-page="home"] .process-sec .process-step p {
+    font-size: 0.95rem;
+  }
+}
+@media (min-width: 1101px) {
+  body[data-page="home"] .process-sec .process-grid::before {
+    content: "";
+    position: absolute;
+    top: 34px;
+    left: 10%;
+    right: 10%;
+    border-top: 5px dotted var(--purple-mid);
+    opacity: 0.55;
+  }
+}

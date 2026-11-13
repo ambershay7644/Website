@@ -547,7 +547,7 @@
       .map(function (p) {
         return (
           '<article class="process-step"><div class="step-num">' +
-          esc(p.num) +
+          esc(String(p.num == null ? "" : p.num).replace(/^0+(?=\d)/, "")) +
           "</div><h3>" +
           esc(p.title) +
           "</h3><p>" +
