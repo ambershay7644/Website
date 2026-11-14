@@ -98,7 +98,7 @@ window.SITE_DATA = {
     "reviewInviteTitle": "Have I cared for your pet?",
     "reviewInviteText": "A quick Google review means the world to me, and helps other pet parents find care they can trust.",
     "reviewInviteButton": "Leave a Google review",
-    "reviewInviteUrl": "https://search.google.com/local/writereview?placeid=ChIJEwxBvt0dlmkRX5ug5D2GLeA",
+    "reviewInviteUrl": "https://search.google.com/local/writereview?placeid=ChIJN7yLhjZcGa0RohKQMrlGCUk",
     "ctaBandTitle": "Ready to get started?",
     "ctaBandLead": "Book a consultation and let's plan the best care for your pets.",
     "ctaBandPrimary": "Book a consultation",
