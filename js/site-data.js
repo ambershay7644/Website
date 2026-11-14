@@ -398,6 +398,20 @@ window.SITE_DATA = {
       "focus": "50% 45%"
     }
   ],
+  "ctaPets": [
+    {
+      "src": "assets/band-01.webp",
+      "focus": "50% 35%"
+    },
+    {
+      "src": "assets/band-02.webp",
+      "focus": "50% 10%"
+    },
+    {
+      "src": "assets/band-05.webp",
+      "focus": "45% 60%"
+    }
+  ],
   "services": [
     {
       "id": "meet-and-greet",

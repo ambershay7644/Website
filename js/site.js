@@ -177,6 +177,33 @@
     );
   }
 
+  /** "Ready to get started?" card: round pet photos peeking over its top edge */
+  function ctaPets(data) {
+    var photos = (data && data.ctaPets) || [];
+    if (!photos.length) return "";
+    return (
+      '<div class="cta-pets" aria-hidden="true">' +
+      photos
+        .map(function (p) {
+          return (
+            '<img src="' +
+            esc(p.src) +
+            '" alt="" width="112" height="112"' +
+            (p.focus ? ' style="object-position:' + esc(p.focus) + '"' : "") +
+            ' loading="lazy" decoding="async" />'
+          );
+        })
+        .join("") +
+      "</div>"
+    );
+  }
+
+  /** Opening tag of that card, with the pet photos when there are any */
+  function ctaBandOpen(data) {
+    var pets = ctaPets(data);
+    return '<div class="cta-band' + (pets ? " has-pets" : "") + '">' + pets;
+  }
+
   /** Home page: sections below the first screen fade in gently as they scroll into view */
   function wireReveal(root) {
     if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -886,7 +913,8 @@
       homeReviewsMore(h, data.reviews) +
       reviewInvite(h) +
       "</div></section>" +
-      '<section class="section section-tight"><div class="container"><div class="cta-band">' +
+      '<section class="section section-tight"><div class="container">' +
+      ctaBandOpen(data) +
       "<h2>" +
       esc(h.ctaBandTitle) +
       "</h2><p>" +
@@ -1106,7 +1134,8 @@
       '</p><div class="process-grid">' +
       processSteps(data.process) +
       "</div></div></section>" +
-      '<section class="section section-tight"><div class="container"><div class="cta-band">' +
+      '<section class="section section-tight"><div class="container">' +
+      ctaBandOpen(data) +
       "<h2>" +
       esc(p.ctaTitle) +
       "</h2><p>" +
@@ -1533,7 +1562,8 @@
       '</h2><p class="lead" style="margin:0.75rem auto 0">' +
       esc(t.learningText) +
       "</p></div></div></section>" +
-      '<section class="section section-tight"><div class="container"><div class="cta-band">' +
+      '<section class="section section-tight"><div class="container">' +
+      ctaBandOpen(data) +
       "<h2>" +
       esc(t.ctaTitle) +
       "</h2><p>" +
