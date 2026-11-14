@@ -755,7 +755,7 @@
         window.location.href = smsLink(biz, text);
         if (success)
           success.textContent =
-            "Your text is ready in your messages app—hit send when it looks good!";
+            "Your text is ready in your messages app, so hit send when it looks good!";
       } else {
         var subject = encodeURIComponent("Pet care inquiry from " + name);
         var body = encodeURIComponent(
@@ -774,7 +774,7 @@
           "mailto:" + biz.email + "?subject=" + subject + "&body=" + body;
         if (success)
           success.textContent =
-            "Your email draft should be ready—hit send when it looks good!";
+            "Your email draft should be ready, so hit send when it looks good!";
       }
       if (success) success.classList.add("show");
     });
@@ -1088,7 +1088,7 @@
       esc(book.href) +
       '"' +
       book.target +
-      ">Book a consultation</a>" +
+      ">Book a free meet &amp; greet</a>" +
       '<a class="btn btn-secondary" href="services.html">View services</a></div>' +
       partsHtml +
       (a.ownerSignOff ? '<p class="about-v2-sign">' + esc(a.ownerSignOff) + "</p>" : "") +
@@ -1198,7 +1198,7 @@
       esc(book.href) +
       '"' +
       book.target +
-      ">Book a consultation</a>" +
+      ">Book a free meet &amp; greet</a>" +
       '<a class="btn btn-secondary" href="' +
       esc(biz.phoneHref) +
       '">' +
@@ -1227,12 +1227,12 @@
       })
       .join("");
     options +=
-      '<option value="Not sure / consultation">Not sure / consultation</option>';
+      '<option value="Not sure / meet &amp; greet">Not sure / meet &amp; greet</option>';
 
     var bookingBanner = hasBooking
       ? '<div class="container" style="margin-bottom:1.5rem"><div class="cta-band">' +
         "<h2>Book online anytime</h2>" +
-        "<p>Check availability and request services through Scritches — Amber's scheduler.</p>" +
+        "<p>Check availability and request services through Scritches, Amber's scheduler.</p>" +
         '<div class="btn-row"><a class="btn btn-primary" href="' +
         esc(book.href) +
         '"' +
@@ -1626,7 +1626,7 @@
       esc(book.href) +
       '"' +
       book.target +
-      ">Book a consultation</a>" +
+      ">Book a free meet &amp; greet</a>" +
       '<a class="btn btn-secondary" href="contact.html">Contact Amber</a>' +
       "</div></div></div></section>" +
       '<div id="cert-lightbox" class="cert-lightbox" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Certificate viewer">' +

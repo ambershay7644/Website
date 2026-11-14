@@ -77,21 +77,21 @@ window.SITE_DATA = {
     ],
     "title": "Amber's Loving Paws",
     "titleEm": "Pet Care",
-    "lead": "Your pet is family, and finding someone trustworthy to care for them is so important. At Amber's Loving Paws, I am here to give you the confidence and reassurance that your beloved pet is in the most caring and capable hands.",
+    "lead": "Your pet is family, and finding someone trustworthy to care for them is so important. I'm Amber, and I'm here to give you the confidence and reassurance that your beloved pet is in the most caring and capable hands.",
     "ctaPrimary": "Book a Visit",
     "ctaSecondary": "View Services",
-    "servicesLabel": "Our Services",
+    "servicesLabel": "My Services",
     "servicesTitle": "Happy pets, happy hearts",
-    "servicesLead": "A few favorites to start — short & clear. Full details on the Services page.",
+    "servicesLead": "Here are a few of the ways I can care for your pet. You'll find all the details on my Services page.",
     "areaLabel": "Service area",
     "areaTitle": "Proudly Serving North Houston and Surrounding Areas",
     "areaLead": "I'm based in the North Houston area and provide in-home pet care throughout the surrounding communities. If you don't see your city listed, reach out! I may still be able to help.",
     "areaSubtitle": "Regular service area",
-    "areaNote": "🐾 Have a location question? Not sure if I cover your area? Give me a call or send me a message—I'm happy to check availability.",
+    "areaNote": "🐾 Have a location question? Not sure if I cover your area? Give me a call or send me a message, and I'm happy to check availability.",
     "areaCta": "Contact Me!",
-    "processLabel": "Our Process",
+    "processLabel": "How it works",
     "processTitle": "You're part of the process",
-    "processLead": "We keep communication open and decisions shared—no black boxes or surprises.",
+    "processLead": "From our first hello until you're back home, I'll keep you updated and involved every step of the way.",
     "reviewsLabel": "Why choose Amber's Loving Paws?",
     "reviewsTitle": "What clients are saying",
     "reviewsMoreLabel": "Read all {count} reviews",
@@ -100,8 +100,8 @@ window.SITE_DATA = {
     "reviewInviteButton": "Leave a Google review",
     "reviewInviteUrl": "https://search.google.com/local/writereview?placeid=ChIJN7yLhjZcGa0RohKQMrlGCUk",
     "ctaBandTitle": "Ready to get started?",
-    "ctaBandLead": "Book a consultation and let's plan the best care for your pets.",
-    "ctaBandPrimary": "Book a consultation",
+    "ctaBandLead": "Book a free meet & greet and let's plan the best care for your pets.",
+    "ctaBandPrimary": "Book a free meet & greet",
     "ctaBandSecondary": "Call 832-948-2184",
     "pageTitle": "Pet Sitting & Dog Walking in Spring, TX | Amber's Loving Paws",
     "offer": "In-home pet sitting, dog walking & drop-in visits",
@@ -125,7 +125,7 @@ window.SITE_DATA = {
     "weeklyTitle": "Weekly dog walks while you're at work",
     "weeklyLead": "Long day at work? Put your dog on a regular walk schedule and come home to a happy, relaxed pup.",
     "weeklyBullets": [
-      "The same walker every time—me",
+      "The same walker every time: me!",
       "Your dog's walks on the same days each week",
       "A photo update after every walk",
       "Free meet & greet before we start"
@@ -136,7 +136,7 @@ window.SITE_DATA = {
   "about": {
     "label": "About",
     "title": "Why choose Amber's Loving Paws?",
-    "lead": "Your pet is family, and finding someone trustworthy to care for them is so important. At Amber's Loving Paws, I am here to give you the confidence and reassurance that your beloved pet is in the most caring and capable hands.",
+    "lead": "Your pet is family, and finding someone trustworthy to care for them is so important. I'm Amber, and I'm here to give you the confidence and reassurance that your beloved pet is in the most caring and capable hands.",
     "ownerLabel": "Amber Taylor",
     "ownerTitle": "Caring, capable hands for your beloved pets",
     "ownerPhoto": "assets/about-amber.webp",
@@ -186,9 +186,9 @@ window.SITE_DATA = {
     "areaLead": "If you don't see your city listed, reach out! I may still be able to help."
   },
   "servicesPage": {
-    "label": "Our Services",
+    "label": "My Services",
     "title": "Happy pets, happy hearts",
-    "lead": "Explore my services below. Rates may vary by pet needs and schedule—ask if you have questions.",
+    "lead": "Take a look at everything I offer below. Rates can vary with your pet's needs and schedule, so please reach out with any questions!",
     "pricesTitle": "Prices at a glance",
     "pricesHint": "Tap a service to see what's included.",
     "extraPetsTitle": "Additional pets",
@@ -207,18 +207,18 @@ window.SITE_DATA = {
     "readMoreLabel": "Read more",
     "processLabel": "How it works",
     "processTitle": "You're part of the process",
-    "processLead": "We keep communication open and decisions shared—no black boxes or surprises.",
+    "processLead": "From our first hello until you're back home, I'll keep you updated and involved every step of the way.",
     "ctaTitle": "Ready to get started?",
-    "ctaLead": "Book a consultation and let's find the right care for your pets."
+    "ctaLead": "Book a free meet & greet and let's find the right care for your pets."
   },
   "contactPage": {
     "label": "Contact",
     "title": "Ready to get started?",
-    "lead": "Book a consultation, ask about your location, or request a visit. You're part of the process—we keep communication open, with no surprises.",
+    "lead": "I'd love to hear from you! Ask a question, check if I come to your area, or request a visit, and I'll get back to you as soon as I can.",
     "cardTitle": "Contact me!",
-    "formTitle": "Book a consultation",
-    "locationNote": "🐾 Have a location question? Not sure if I cover your area? Give me a call or send me a message—I'm happy to check availability for your location.",
-    "formHint": "Opens your messages app with everything filled in—just hit send.",
+    "formTitle": "Book a free meet & greet",
+    "locationNote": "🐾 Have a location question? Not sure if I cover your area? Give me a call or send me a message, and I'm happy to check availability for your location.",
+    "formHint": "Opens your messages app with everything filled in, so just hit send.",
     "formHintEmail": "Opens your email app with a message ready for Amber.",
     "formTextBtn": "Send as a text",
     "formEmailBtn": "Send by email",
@@ -233,7 +233,7 @@ window.SITE_DATA = {
     "openLabel": "See this photo larger",
     "countLabel": "{n} of {total}",
     "title": "Happy pets, happy hearts",
-    "lead": "Photos of clients' pets, walks, and snuggles—happy moments from care visits and adventures."
+    "lead": "Photos of clients' pets, walks, and snuggles, happy moments from care visits and adventures."
   },
   "gallery": [
     {
@@ -567,27 +567,27 @@ window.SITE_DATA = {
     {
       "num": "01",
       "title": "Register Online",
-      "text": "Create your account and share details about your pets, your home, and the care you need—so we can get started on the right foot."
+      "text": "Create your account and share details about your pets, your home, and the care you need, so we can get started on the right foot."
     },
     {
       "num": "02",
       "title": "I'll Be in Touch",
-      "text": "I'll review your registration and reach out to confirm details, answer questions, and schedule the next step."
+      "text": "I'll read through everything and reach out to answer your questions and set up our meet and greet."
     },
     {
       "num": "03",
       "title": "Complimentary Meet and Greet",
-      "text": "We'll meet in person—required for all new clients—so everyone can get comfortable and review your pet's routine together."
+      "text": "We'll meet in person, which is required for all new clients, so everyone can get comfortable and review your pet's routine together."
     },
     {
       "num": "04",
       "title": "Confirm Your Booking",
-      "text": "Once we're a good fit, confirm your dates and services so care is locked in and ready to go."
+      "text": "Once we know we're a good fit, confirm your dates and services, and your pet's care is all set."
     },
     {
       "num": "05",
       "title": "Relax and Enjoy",
-      "text": "Head out with peace of mind knowing your pets are in caring hands—with daily photo and video updates along the way."
+      "text": "Head out with peace of mind knowing your pets are in caring hands, with daily photo and video updates along the way."
     }
   ],
   "reviews": [
@@ -623,7 +623,7 @@ window.SITE_DATA = {
   "trainingPage": {
     "label": "Training & Certificates",
     "title": "Trained, certified & always learning",
-    "lead": "Your pet's safety comes first. Here are the certifications and memberships that back up the care I provide—click any certificate to view it full size.",
+    "lead": "Your pet's safety comes first. Here are the certifications and memberships that back up the care I provide. Click any certificate to view it full size.",
     "certsLabel": "Current credentials",
     "certsTitle": "Certificates & memberships",
     "certsLead": "Verified training and professional standing, kept up to date.",
@@ -631,7 +631,7 @@ window.SITE_DATA = {
     "learningTitle": "Continuing education matters",
     "learningText": "Pet care is always evolving, so I keep learning. As I complete new courses and certifications, they'll be added to this page.",
     "ctaTitle": "Care you can feel confident about",
-    "ctaLead": "Trained in pet first aid and held to professional standards—so you can relax while you're away."
+    "ctaLead": "Trained in pet first aid and held to professional standards, so you can relax while you're away."
   },
   "certificates": [
     {
