@@ -1232,7 +1232,7 @@
     var bookingBanner = hasBooking
       ? '<div class="container" style="margin-bottom:1.5rem"><div class="cta-band">' +
         "<h2>Book online anytime</h2>" +
-        "<p>Check availability and request services through Scritches, Amber's scheduler.</p>" +
+        "<p>Send me a request online, and I'll reach out personally to confirm everything.</p>" +
         '<div class="btn-row"><a class="btn btn-primary" href="' +
         esc(book.href) +
         '"' +
