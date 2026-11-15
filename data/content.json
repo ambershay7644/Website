@@ -394,6 +394,30 @@
       "name": "Willow",
       "alt": "Willow asleep on a plaid blanket",
       "focus": "50% 45%"
+    },
+    {
+      "src": "assets/gallery-30-layla-christmas-tree.webp",
+      "name": "Layla",
+      "alt": "Layla the cat sitting on a white fluffy blanket under a Christmas tree",
+      "focus": "50% 40%"
+    },
+    {
+      "src": "assets/gallery-31-rosco-standing.webp",
+      "name": "Rosco",
+      "alt": "Rosco the curly red poodle standing up on his back legs",
+      "focus": "50% 50%"
+    },
+    {
+      "src": "assets/gallery-32-rosco-playpen.webp",
+      "name": "Rosco",
+      "alt": "Rosco looking up from his playpen full of toys",
+      "focus": "50% 62%"
+    },
+    {
+      "src": "assets/gallery-33-rosco-ball.webp",
+      "name": "Rosco",
+      "alt": "Rosco tilting his head beside a green toy ball",
+      "focus": "50% 42%"
     }
   ],
   "ctaPets": [
