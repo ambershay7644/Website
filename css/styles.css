@@ -4456,3 +4456,10 @@ body[data-page="contact"] .cta-band.book-steps .btn-primary {
     top: 20px;
   }
 }
+
+/* —— Gallery on computers: a lone last photo sits in the middle column —— */
+@media (min-width: 901px) {
+  .gallery-grid > .gallery-tile-photo:last-child:nth-child(3n + 1 of .gallery-tile-photo) {
+    grid-column: 2;
+  }
+}
