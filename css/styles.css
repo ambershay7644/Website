@@ -4339,3 +4339,120 @@ body[data-page="home"] .reviews-sec .review-card cite::before {
     margin-bottom: 1.3rem;
   }
 }
+
+/* —— Contact: "Book online anytime" card with three little steps —— paw badge on the top edge, numbered steps on a dotted path —— */
+body[data-page="contact"] .cta-band.book-steps {
+  position: relative;
+  margin-top: 2.6rem;
+  padding: 3.3rem 2rem 2.7rem;
+}
+
+.book-steps .bk-seal {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--purple);
+  border: 4px solid #ffffff;
+  box-shadow: 0 0 0 2px var(--purple), 0 6px 14px rgba(74, 44, 122, 0.28);
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+}
+
+.book-steps .bk-seal .paw-ico {
+  width: 30px;
+  height: 28px;
+}
+
+body[data-page="contact"] .cta-band.book-steps p {
+  margin-bottom: 1.5rem;
+  font-size: 1.08rem;
+}
+
+.book-steps .bk-steps {
+  list-style: none;
+  margin: 0 auto 1.7rem;
+  padding: 0;
+  max-width: 33rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  position: relative;
+}
+
+/* the dotted path runs from the middle of the first circle to the middle of the last one */
+.book-steps .bk-steps::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 16.67%;
+  right: 16.67%;
+  border-top: 3px dotted var(--lilac);
+}
+
+.book-steps .bk-steps li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0.3rem;
+  color: var(--purple-deep);
+  font-weight: 700;
+  font-size: 0.98rem;
+  line-height: 1.25;
+}
+
+.book-steps .bk-steps b {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 2px solid var(--purple);
+  color: var(--purple-deep);
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+  box-shadow: 0 0 0 5px #f4eefb;
+}
+
+body[data-page="contact"] .cta-band.book-steps .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding-left: 2.1rem;
+  padding-right: 2.1rem;
+}
+
+.book-steps .btn-primary .paw-ico {
+  width: 18px;
+  height: 17px;
+  flex: none;
+}
+
+@media (max-width: 700px) {
+  body[data-page="contact"] .cta-band.book-steps {
+    padding: 3rem 1.1rem 2.4rem;
+  }
+
+  .book-steps .bk-steps li {
+    font-size: 0.86rem;
+    padding: 0 0.15rem;
+  }
+
+  .book-steps .bk-steps b {
+    width: 42px;
+    height: 42px;
+    font-size: 1.35rem;
+  }
+
+  .book-steps .bk-steps::before {
+    top: 20px;
+  }
+}

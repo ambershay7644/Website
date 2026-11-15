@@ -1230,14 +1230,20 @@
       '<option value="Not sure / meet &amp; greet">Not sure / meet &amp; greet</option>';
 
     var bookingBanner = hasBooking
-      ? '<div class="container" style="margin-bottom:1.5rem"><div class="cta-band">' +
+      ? '<div class="container" style="margin-bottom:1.5rem"><div class="cta-band book-steps">' +
+        '<div class="bk-seal" aria-hidden="true"><span class="paw-ico"></span></div>' +
         "<h2>Book online anytime</h2>" +
         "<p>Send me a request online, and I'll reach out personally to confirm everything.</p>" +
+        '<ol class="bk-steps">' +
+        '<li><b aria-hidden="true">1</b>Send a request</li>' +
+        '<li><b aria-hidden="true">2</b>I reach out</li>' +
+        '<li><b aria-hidden="true">3</b>Free meet &amp; greet</li>' +
+        "</ol>" +
         '<div class="btn-row"><a class="btn btn-primary" href="' +
         esc(book.href) +
         '"' +
         book.target +
-        ">" +
+        '><span class="paw-ico" aria-hidden="true"></span>' +
         esc(book.label) +
         "</a></div></div></div>"
       : "";
