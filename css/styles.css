@@ -4463,3 +4463,8 @@ body[data-page="contact"] .cta-band.book-steps .btn-primary {
     grid-column: 2;
   }
 }
+
+/* -- Top bar background: lavender wash -- */
+.site-header {
+  background: linear-gradient(180deg, #fbf8ff 0%, #efe3fb 55%, #e6d6f8 100%);
+}
