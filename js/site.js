@@ -1582,6 +1582,68 @@
     });
   }
 
+  var BG_SHIELD =
+    '<svg viewBox="0 0 48 56" aria-hidden="true"><path fill="currentColor" d="M24 2 4 9v17c0 13 8.500 23.500 20 28 11.500-4.500 20-15 20-28V9L24 2z"/>' +
+    '<path fill="none" stroke="#fff" stroke-width="4.600" stroke-linecap="round" stroke-linejoin="round" d="M15 28l7 7 12-14"/></svg>';
+
+  function bgCheckView(b) {
+    if (!b || !b.image) return [];
+    return [{ image: b.image, alt: b.alt, title: b.reportTitle || b.sealTitle, issuer: b.issuer }];
+  }
+
+  function bgCheckPanel(b, idx) {
+    if (!b) return "";
+    var facts = "";
+    if (b.result) facts += "<li><span>Result</span>" + esc(b.result) + "</li>";
+    if (b.completed) facts += "<li><span>Completed</span>" + esc(b.completed) + "</li>";
+    if (b.issuer) facts += "<li><span>Screened by</span>" + esc(b.issuer) + "</li>";
+    var report = b.image
+      ? '<button class="bgc-thumb cert-open" type="button" data-cert="' +
+        idx +
+        '" aria-label="View the background check report full size">' +
+        '<img src="' +
+        esc(b.image) +
+        '" alt="' +
+        esc(b.alt || b.sealTitle) +
+        '" loading="lazy" />' +
+        '<span class="cert-zoom" aria-hidden="true">' +
+        esc(b.zoom || "Click to enlarge") +
+        "</span></button>"
+      : "";
+    return (
+      '<article class="bgc-feature' +
+      (b.image ? " has-report" : "") +
+      '">' +
+      '<div class="bgc-seal"><div class="bgc-ring">' +
+      BG_SHIELD +
+      "</div><b>" +
+      esc(b.sealTitle) +
+      "</b>" +
+      (b.completed ? "<span>Completed " + esc(b.completed) + "</span>" : "") +
+      "</div>" +
+      '<div class="bgc-body"><span class="cert-type">' +
+      esc(b.badge) +
+      "</span><h3>" +
+      esc(b.title) +
+      "</h3><p>" +
+      esc(b.text) +
+      "</p>" +
+      (facts ? '<ul class="bgc-facts">' + facts + "</ul>" : "") +
+      (b.image
+        ? '<div class="btn-row bgc-actions"><button class="btn btn-primary cert-open" type="button" data-cert="' +
+          idx +
+          '">' +
+          esc(b.button || "View report") +
+          "</button>" +
+          (b.note ? '<span class="bgc-note">' + esc(b.note) + "</span>" : "") +
+          "</div>"
+        : "") +
+      "</div>" +
+      report +
+      "</article>"
+    );
+  }
+
   function fillTraining(data) {
     var t = data.trainingPage || {};
     var biz = data.business;
@@ -1612,7 +1674,9 @@
       esc(t.certsLead) +
       '</p><div class="cert-grid">' +
       cards +
-      "</div></div></section>" +
+      "</div>" +
+      bgCheckPanel(data.backgroundCheck, certs.length) +
+      "</div></section>" +
       '<section class="section section-tight"><div class="container"><div class="area-banner">' +
       '<span class="section-label">' +
       esc(t.learningLabel) +
@@ -1640,7 +1704,7 @@
       '<figure><img class="cert-lightbox-img" alt="" />' +
       '<figcaption class="cert-lightbox-cap"></figcaption></figure></div>';
 
-    wireCertLightbox(certs);
+    wireCertLightbox(certs.concat(bgCheckView(data.backgroundCheck)));
   }
 
   function boot(data) {

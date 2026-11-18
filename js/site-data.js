@@ -682,5 +682,20 @@ window.SITE_DATA = {
       "verifyUrl": "",
       "verifyId": ""
     }
-  ]
+  ],
+  "backgroundCheck": {
+    "badge": "Background check",
+    "sealTitle": "Background Checked",
+    "title": "Checked, for your peace of mind",
+    "text": "I completed an independent background check through ACUTRAQ, Pet Sitters International's background screening partner. The county and nationwide criminal searches and the 50-state sex offender registry search all came back with no reportable records, so you can feel at ease welcoming me into your home.",
+    "result": "No reportable records found",
+    "completed": "November 17, 2026",
+    "issuer": "ACUTRAQ Background Screening",
+    "image": "assets/background-check-report-covered.webp",
+    "alt": "ACUTRAQ background screening report for Amber Taylor showing No Reportable Records Found on both searches, with private details covered",
+    "reportTitle": "Background check report",
+    "button": "View my report",
+    "zoom": "Click to enlarge",
+    "note": "Private details on the report are covered for safety."
+  }
 };
