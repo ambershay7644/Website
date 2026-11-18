@@ -424,16 +424,14 @@ window.SITE_DATA = {
   ],
   "ctaPets": [
     {
+      "src": "assets/cta-pet-gizmo.webp"
+    },
+    {
+      "src": "assets/cta-pet-tinker.webp"
+    },
+    {
       "src": "assets/band-01.webp",
       "focus": "50% 35%"
-    },
-    {
-      "src": "assets/band-02.webp",
-      "focus": "50% 10%"
-    },
-    {
-      "src": "assets/band-05.webp",
-      "focus": "45% 60%"
     }
   ],
   "services": [
